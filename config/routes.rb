@@ -1,12 +1,15 @@
 YetAnotherMonitoringProgram::Application.routes.draw do
 
+
   devise_for :users
 
-  %w[about privacy contact].each do |page|
+  %w[about contact license dashboard alerts].each do |page|
     get page, controller: 'static', action: page
   end
 
   root :to => 'static#about'
+
+  ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

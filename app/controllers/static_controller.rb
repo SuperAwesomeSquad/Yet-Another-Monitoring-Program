@@ -7,4 +7,11 @@ class StaticController < ApplicationController
 
   def license
   end
+
+  def dashboard
+  end
+
+  def alerts
+    @alerts = nil
+  end
 end
