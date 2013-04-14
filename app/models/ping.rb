@@ -6,4 +6,8 @@ class Ping < ActiveRecord::Base
   def to_s
   	self.hostname
   end
+
+  def do
+  	PingWorker.perform_async(self.id)
+  end
 end

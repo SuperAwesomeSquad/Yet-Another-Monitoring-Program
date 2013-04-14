@@ -29,6 +29,6 @@ gem 'thin'
 gem 'sidekiq'
 gem 'net-ping'
 gem 'slim'
-gem 'sinatra', :require => nil
+gem 'sinatra', :require => false
 gem 'devise'
 gem 'activeadmin'

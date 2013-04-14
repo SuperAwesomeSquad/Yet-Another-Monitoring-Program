@@ -1,5 +1,5 @@
 YetAnotherMonitoringProgram::Application.routes.draw do
-
+  require 'sidekiq/web'
 
   devise_for :users
 
@@ -10,6 +10,8 @@ YetAnotherMonitoringProgram::Application.routes.draw do
   root :to => 'static#about'
 
   ActiveAdmin.routes(self)
+
+  mount Sidekiq::Web, at: '/sidekiq'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
