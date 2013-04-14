@@ -24,10 +24,14 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
+        panel "Active Alerts" do
+         ul do
+          Alert.where(active: true).map do |alert|
+            li link_to(alert.to_s, admin_alert_path(alert))
+          end
         end
       end
     end
+  end
   end # content
 end
