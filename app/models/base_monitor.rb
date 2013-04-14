@@ -3,6 +3,10 @@ class BaseMonitor < ActiveRecord::Base
   belongs_to :monitorable, polymorphic: true
   delegate :type, to: :monitorable
   belongs_to :user
+
+  validates :monitorable, presence: true
+  validates :monitorable_type, presence: true
+
   def monitor?
   	true
   end
