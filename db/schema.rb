@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414205947) do
+ActiveRecord::Schema.define(:version => 20130414211757) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20130414205947) do
     t.integer  "frequency_in_seconds", :default => 300
     t.boolean  "active",               :default => true
   end
+
+  add_index "base_monitors", ["monitorable_id", "monitorable_type"], :name => "index_base_monitors_on_monitorable_id_and_monitorable_type"
 
   create_table "file_monitors", :force => true do |t|
     t.datetime "created_at", :null => false
