@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
  
-  has_many :ping
+  has_many :pings
+  has_many :alerts
 
   def to_s
   	self.email
