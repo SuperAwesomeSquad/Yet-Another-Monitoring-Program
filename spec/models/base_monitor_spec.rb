@@ -8,7 +8,7 @@ describe BaseMonitor do
   end
 
   it "Cannot create BaseMonitor without an associated monitorable" do
-    BaseMonitor.create!.should raise_error
+    lambda { BaseMonitor.create! }.should raise_error
   end
 
   it "Belongs to a specific user" do
