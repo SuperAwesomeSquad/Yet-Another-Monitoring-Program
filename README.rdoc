@@ -63,5 +63,5 @@ The default directory structure of a generated Ruby on Rails application:
   0.1.0 Release Date: 09/Apr/13 Wireframes and Mockups
 
 == Authors
-Nikky Southerland(mailto:nikky@uw.edu)
-Serene Careaga(mailto:info@serenecareaga.com)
+Nikky Southerland (mailto:nikky@uw.edu) and 
+Serene Careaga (mailto:info@serenecareaga.com)
