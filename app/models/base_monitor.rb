@@ -1,7 +1,7 @@
 class BaseMonitor < ActiveRecord::Base
   attr_accessible :user_id, :name, :monitorable_type, :monitorable
   belongs_to :monitorable, polymorphic: true
-  delegate :type, to: :monitorable
+  delegate :type, :do, to: :monitorable
   belongs_to :user
 
   validates :monitorable, presence: true

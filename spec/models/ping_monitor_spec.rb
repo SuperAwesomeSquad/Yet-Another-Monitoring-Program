@@ -10,7 +10,7 @@ describe PingMonitor do
     @pm.BaseMonitor.class.should eq BaseMonitor
   end
   it "Displays the hostname its monitoring" do
-    @pm.to_s.should eq "Ping Monitor for example.com"
+    @pm.to_s.should eq "Ping Monitor for #{@pm.hostname}"
   end
   it "Handles undefined hosts" do
     PingMonitor.create.to_s.should eq "Ping Monitor for Undefined Host"
@@ -20,5 +20,8 @@ describe PingMonitor do
   end
   it "Should tell you the owner" do
     @pm.owner.should eq @user.email
+  end
+  it "Should respond to 'do'" do
+    @pm.respond_to?(:do).should eq true
   end
 end
