@@ -25,6 +25,10 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
+group :test do
+  gem "nyan-cat-formatter"
+end
+
 gem 'jquery-rails'
 
 gem 'thin'
