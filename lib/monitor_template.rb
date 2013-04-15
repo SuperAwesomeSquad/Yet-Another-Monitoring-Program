@@ -8,6 +8,10 @@ module MonitorTemplate
     raise "Sub-class should define this"
   end
 
+  def owner
+    self.BaseMonitor.user.email
+  end
+
   protected
   def create_basemonitor_object
     self.BaseMonitor = BaseMonitor.new unless self.BaseMonitor

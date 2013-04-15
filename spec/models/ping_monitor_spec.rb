@@ -18,4 +18,7 @@ describe PingMonitor do
   it "Responds to .type as 'Ping Monitor'" do
     @pm.type.should eq "Ping Monitor"
   end
+  it "Should tell you the owner" do
+    @pm.owner.should eq @user.email
+  end
 end
