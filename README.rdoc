@@ -59,9 +59,9 @@ The default directory structure of a generated Ruby on Rails application:
 == Version Information
 
   0.3.0 Release Date: 23/Apr/13 
-  0.2.0 Release Date: 16/Apr/13 Initial Modeling and Rails Scaffolding; first monitoring task
+  0.2.0 Release Date: 16/Apr/13 Initial Scaffolding
   0.1.0 Release Date: 09/Apr/13 Wireframes and Mockups
 
 == Authors
-Nikky Southerland (mailto:nikky@uw.edu) and 
-Serene Careaga (mailto:info@serenecareaga.com)
+Nikky Southerland (https://github.com/allynfolksjr/) and 
+Serene Careaga (https://github.com/serened/)
