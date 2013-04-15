@@ -21,6 +21,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
   gem 'annotate', '>=2.5.0'
+  gem 'capybara'
+  gem "factory_girl_rails", "~> 4.0"
+end
+
+group :test do
+  gem "nyan-cat-formatter"
 end
 
 gem 'jquery-rails'
@@ -29,6 +35,6 @@ gem 'thin'
 gem 'sidekiq'
 gem 'net-ping'
 gem 'slim'
-gem 'sinatra', :require => nil
+gem 'sinatra', :require => false
 gem 'devise'
 gem 'activeadmin'

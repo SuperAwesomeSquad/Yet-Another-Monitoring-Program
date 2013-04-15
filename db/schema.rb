@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409174518) do
+ActiveRecord::Schema.define(:version => 20130414211757) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -27,6 +27,57 @@ ActiveRecord::Schema.define(:version => 20130409174518) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "alerts", :force => true do |t|
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.integer  "ping_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "base_monitors", :force => true do |t|
+    t.string   "name"
+    t.integer  "monitorable_id"
+    t.string   "monitorable_type"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "user_id"
+    t.integer  "frequency_in_seconds", :default => 300
+    t.boolean  "active",               :default => true
+  end
+
+  add_index "base_monitors", ["monitorable_id", "monitorable_type"], :name => "index_base_monitors_on_monitorable_id_and_monitorable_type"
+
+  create_table "file_monitors", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ping_monitors", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "hostname"
+  end
+
+  create_table "ping_results", :force => true do |t|
+    t.float    "duration"
+    t.string   "exception"
+    t.integer  "ping_id"
+    t.boolean  "successful"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ping_results", ["ping_id"], :name => "index_ping_results_on_ping_id"
+
+  create_table "pings", :force => true do |t|
+    t.string   "hostname"
+    t.integer  "frequency_in_seconds"
+    t.integer  "user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
