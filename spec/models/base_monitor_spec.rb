@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe BaseMonitor do
-  pending "Cannot create BaseMonitor without an associated monitorable"
-  pending "Belongs to a specific user"
+  before do
+    @user = FactoryGirl.create(:user)
+    @pm = PingMonitor.create
+    @user.BaseMonitors << @pm.BaseMonitor
+  end
+
+  it "Cannot create BaseMonitor without an associated monitorable" do
+    BaseMonitor.create!.should raise_error
+  end
+
+  it "Belongs to a specific user" do
+    @pm.BaseMonitor.user.id.should eq @user.id
+  end
+
 end

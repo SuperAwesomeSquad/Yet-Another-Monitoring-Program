@@ -22,6 +22,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'annotate', '>=2.5.0'
   gem 'capybara'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 gem 'jquery-rails'
