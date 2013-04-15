@@ -5,7 +5,7 @@ describe FileMonitor do
     @fm = FileMonitor.create
   end
   it "Has an Associated BaseMonitor" do
-    @fm.BaseMonitor
+    @fm.BaseMonitor.class.should eq BaseMonitor
   end
   it "Displays the hostname its monitoring"
   it "Handles undefined hosts"
