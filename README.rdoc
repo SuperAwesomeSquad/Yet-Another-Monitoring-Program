@@ -1,15 +1,15 @@
 == Yet Another Monitoring Program
-<em>What does it do?</em>
-A web application monitoring app that takes the complexity out of system monitoring.
+<p><em>What does it do?</em></p>
+<p>A web application monitoring app that takes the complexity out of system monitoring.</p>
 
-<em>Why do you want this app?</em>
-You get a lot of SaaS alerts that don’t actually help you do your job. You only want to be alerted when things are actually in crisis mode.
+<p><em>Why do you want this app?</em></p>
+<p>You get a lot of SaaS alerts that don’t actually help you do your job. You only want to be alerted when things are actually in crisis mode.</p>
 
-<em>Aren't there othering monitoring apps out there?</em>
-Yes, there are many apps that provide SaaS services. Think of this as monitoring-lite. We are simplifying the information delivery and promising to alert you to serious, serious failures.
+<p><em>Aren't there othering monitoring apps out there?</em></p>
+<p>Yes, there are many apps that provide SaaS services. Think of this as monitoring-lite. We are simplifying the information delivery and promising to alert you to serious, serious failures.</p>
 
-<em>How will you get your data?</em>
-You will give us urls/domains to keep an eye out for.
+<p><em>How will you get your data?</em></p>
+<p>You will give us urls/domains to keep an eye out for.</p>
 
 
 == Description of Contents
@@ -61,6 +61,6 @@ The default directory structure of a generated Ruby on Rails application:
   0.2.0 Release Date: 16/Apr/13 Initial Modeling and Rails Scaffolding; first monitoring task
   0.1.0 Release Date: 09/Apr/13 Wireframes and Mockups
 
-  == Authors
+== Authors
   <a href="https://github.com/allynfolksjr">Nikky Southerland</a>
   <a href="https://github.com/serened">Serene Careaga</a>
