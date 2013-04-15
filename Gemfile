@@ -21,6 +21,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
   gem 'annotate', '>=2.5.0'
+  gem 'capybara'
 end
 
 gem 'jquery-rails'
