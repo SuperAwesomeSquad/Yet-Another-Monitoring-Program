@@ -1,18 +1,15 @@
-== Yet Another Monitoring Program
-<strong>What does it do?</strong>
+= Yet Another Monitoring Program
 
+===What does it do?
 A web application monitoring app that takes the complexity out of system monitoring.
 
 ===Why do you want this app?
-
 You get a lot of SaaS alerts that don’t actually help you do your job. You only want to be alerted when things are actually in crisis mode.
 
-<em>Aren't there othering monitoring apps out there?</em>
-
+===Aren't there othering monitoring apps out there?
 Yes, there are many apps that provide SaaS services. Think of this as monitoring-lite. We are simplifying the information delivery and promising to alert you to serious, serious failures.
 
-<em>How will you get your data?</em>
-
+===How will you get your data?
 You will give us urls/domains to keep an eye out for.
 
 
