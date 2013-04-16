@@ -7,16 +7,8 @@ class PingMonitor < ActiveRecord::Base
 
   include MonitorTemplate
 
-  def type
-  	"Ping Monitor"
-  end
-
-  def to_s
-  	if self.hostname
-  		"Ping Monitor for #{self.hostname}"
-  	else
-  		"Ping Monitor for Undefined Host"
-  	end
+  def monitored_thing
+    self.hostname
   end
 
   def do

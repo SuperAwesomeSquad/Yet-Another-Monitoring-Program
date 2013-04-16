@@ -1,11 +1,15 @@
 module MonitorTemplate
 
   def type
-    raise "Sub-class should define this"
+    pretty_class
   end
 
   def to_s
-    raise "Sub-class should define this"
+    if monitored_thing
+      "#{pretty_class} for #{monitored_thing}"
+    else
+      "#{pretty_class} for unknown object"
+    end
   end
 
   def owner
@@ -15,6 +19,10 @@ module MonitorTemplate
   protected
   def create_basemonitor_object
     self.BaseMonitor = BaseMonitor.new unless self.BaseMonitor
+  end
+
+  def pretty_class
+    self.class.to_s.titleize
   end
 
   # def associate_basemonitor_with_user
