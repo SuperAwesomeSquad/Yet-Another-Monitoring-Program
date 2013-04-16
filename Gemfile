@@ -38,3 +38,4 @@ gem 'slim'
 gem 'sinatra', :require => false
 gem 'devise'
 gem 'activeadmin'
+gem 'whenever'
