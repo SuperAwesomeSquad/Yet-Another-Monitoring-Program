@@ -21,9 +21,9 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Active Alerts" do
          ul do
-          Alert.where(active: true).map do |alert|
-            li link_to(alert.to_s, admin_alert_path(alert))
-          end
+          #Alert.where(active: true).map do |alert|
+          #  li link_to(alert.to_s, admin_alert_path(alert))
+	  #end
         end
       end
     end
