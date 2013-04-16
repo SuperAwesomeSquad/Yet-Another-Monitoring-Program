@@ -26,12 +26,12 @@ end
 
 group :test do
  gem "nyan-cat-formatter"
- gem 'rspec-rails'
  gem "rspec-mocks"
  gem 'capybara'
  gem "factory_girl_rails", "~> 4.0"
 end
 
+gem 'rspec-rails'
 gem 'thin'
 gem 'sidekiq'
 gem 'net-ping'
