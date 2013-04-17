@@ -15,7 +15,7 @@ development:
   database: YAMP_development
   pool: 5
   username: root
-  password: Password
+  password:
   socket: /tmp/mysql.sock
 
 
@@ -29,7 +29,7 @@ test:
   database: YAMP_test
   pool: 5
   username: root
-  password: Password
+  password:
   socket: /tmp/mysql.sock
 
 production:
@@ -39,5 +39,5 @@ production:
   database: YAMP_production
   pool: 5
   username: root
-  password: Password
+  password:
   socket: /tmp/mysql.sock
