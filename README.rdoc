@@ -1,5 +1,7 @@
 = Yet Another Monitoring Program
 
+==The Important Questions
+
 ===What does it do?
 A web application monitoring app that takes the complexity out of system monitoring.
 
@@ -58,10 +60,10 @@ The default directory structure of a generated Ruby on Rails application:
 
 == Version Information
 
-  0.3.0 Release Date: 23/Apr/13 
+  0.3.0 Release Date: 23/Apr/13
   0.2.0 Release Date: 16/Apr/13 Initial Scaffolding
   0.1.0 Release Date: 09/Apr/13 Wireframes and Mockups
 
 == Authors
-Nikky Southerland (https://github.com/allynfolksjr/) and 
+Nikky Southerland (https://github.com/allynfolksjr/) and
 Serene Careaga (https://github.com/serened/)

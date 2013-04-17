@@ -15,3 +15,5 @@
 /tmp
 
 *.swp
+*.rdb
+*.DS_store
