@@ -13,7 +13,7 @@ describe WebMonitor do
     @wm.to_s.should eq "Web Monitor for #{@wm.url}"
   end
   it "Handles undefined hosts" do
-    WebMonitor.create.to_s.should eq "Web Monitor for Undefined Host"
+    WebMonitor.create.to_s.should eq "Web Monitor for unknown object"
   end
   it "Responds to .type as 'Web Monitor'" do
     @wm.type.should eq "Web Monitor"

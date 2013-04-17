@@ -3,12 +3,12 @@ class FileMonitor < ActiveRecord::Base
   before_save :create_basemonitor_object
   include MonitorTemplate
 
-  def type
-  	"File Monitor"
-  end
+ def monitored_thing
+  "Nothing"
+end
 
   def to_s
-    "A file monitor"
+    "#{pretty_class}"
   end
 
 

@@ -13,7 +13,7 @@ describe PingMonitor do
     @pm.to_s.should eq "Ping Monitor for #{@pm.hostname}"
   end
   it "Handles undefined hosts" do
-    PingMonitor.create.to_s.should eq "Ping Monitor for Undefined Host"
+    PingMonitor.create.to_s.should eq "Ping Monitor for unknown object"
   end
   it "Responds to .type as 'Ping Monitor'" do
     @pm.type.should eq "Ping Monitor"
