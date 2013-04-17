@@ -265,6 +265,7 @@ DEPENDENCIES
   nyan-cat-formatter
   pry-rails
   rails (= 3.2.13)
+  rspec-mocks
   rspec-rails
   sass-rails (~> 3.2.3)
   sextant
