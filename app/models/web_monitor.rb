@@ -6,16 +6,8 @@ class WebMonitor < ActiveRecord::Base
 
   include MonitorTemplate
 
-  def type
-    "Web Monitor"
-  end
-
-  def to_s
-    if self.url
-      "Web Monitor for #{self.url}"
-    else
-      "Web Monitor for Undefined Host"
-    end
+  def monitored_thing
+    self.url
   end
 
   def do
