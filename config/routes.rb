@@ -7,9 +7,15 @@ YetAnotherMonitoringProgram::Application.routes.draw do
     get page, controller: 'static', action: page
   end
 
-  resources :monitors
+namespace :dashboard do
+    get '', to: 'dashboard#index', as: '/'
+    resources :monitors
+end
 
-  root :to => 'static#about'
+resources :alerts
+
+
+  # root :to => 'static#about'
 
   ActiveAdmin.routes(self)
 

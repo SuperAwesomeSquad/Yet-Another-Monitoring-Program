@@ -29,13 +29,13 @@ feature 'Creating Monitors' do
 	end
 end
 
-feature 'Edit Monitors' do
-	scenario "can edit a monitor" do
-		visit '/'
-		click_link 'Edit Monitor'
-		fill_in 'Name', :with => 'Google'
-		fill_in 'URL', :with => "google.com"
-		click_button 'Edit Monitor'
-		page.should have_content('Monitor has been updated.')
-	end
-end
+# feature 'Edit Monitors' do
+# 	scenario "can edit a monitor" do
+# 		visit '/'
+# 		click_link 'Edit Monitor'
+# 		fill_in 'Name', :with => 'Google'
+# 		fill_in 'URL', :with => "google.com"
+# 		click_button 'Edit Monitor'
+# 		page.should have_content('Monitor has been updated.')
+# 	end
+# end
