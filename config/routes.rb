@@ -3,9 +3,11 @@ YetAnotherMonitoringProgram::Application.routes.draw do
 
   devise_for :users
 
-  %w[about contact license dashboard alerts].each do |page|
+  %w[faq contact license ].each do |page|
     get page, controller: 'static', action: page
   end
+
+  resources :monitors
 
   root :to => 'static#about'
 

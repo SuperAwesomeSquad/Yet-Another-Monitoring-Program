@@ -17,7 +17,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sextant'
-  gem 'pry-rails'
+  # gem 'pry-rails'
   gem 'awesome_print'
   gem 'annotate', '>=2.5.0'
   gem 'capybara'
