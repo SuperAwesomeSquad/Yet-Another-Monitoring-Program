@@ -26,7 +26,7 @@ module MonitorTemplate
 
   protected
   def create_basemonitor_object
-    self.BaseMonitor = BaseMonitor.new unless self.BaseMonitor
+    # self.BaseMonitor = BaseMonitor.new unless self.BaseMonitor
   end
 
   def pretty_class
