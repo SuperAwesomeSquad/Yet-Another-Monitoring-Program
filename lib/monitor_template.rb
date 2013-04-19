@@ -16,6 +16,14 @@ module MonitorTemplate
     self.BaseMonitor.user.email
   end
 
+  def frequency=(minutes)
+    self.BaseMonitor.update_attribute(:frequency_in_seconds, minutes * 60)
+  end
+
+  def frequency
+    self.BaseMonitor.frequency_in_seconds / 60
+  end
+
   protected
   def create_basemonitor_object
     self.BaseMonitor = BaseMonitor.new unless self.BaseMonitor
