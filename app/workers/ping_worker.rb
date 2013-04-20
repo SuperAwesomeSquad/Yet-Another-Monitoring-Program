@@ -1,5 +1,6 @@
 class PingWorker
 	include Sidekiq::Worker
+	include WorkerTemplate
 
 	def perform(ping_id)
 		monitor = PingMonitor.find(ping_id)
@@ -10,7 +11,7 @@ class PingWorker
 				successful: false,
 				duration: 'null'
 				)
-			# Create alert
+			create_alert
 		else
 			p = monitor.PingResults.build(
 				successful: true,

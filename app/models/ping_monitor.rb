@@ -1,9 +1,10 @@
 class PingMonitor < ActiveRecord::Base
-  has_one :BaseMonitor, as: :monitorable
-  has_many :PingResults
+  attr_accessible :hostname, :BaseMonitor_attributes
   before_save :create_basemonitor_object
+  has_many :PingResults
+  has_one :BaseMonitor, as: :monitorable
 
-  attr_accessible :hostname
+  accepts_nested_attributes_for :BaseMonitor
 
   include MonitorTemplate
 

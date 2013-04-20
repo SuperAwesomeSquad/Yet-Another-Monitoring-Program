@@ -27,6 +27,7 @@ describe PingMonitor do
   it "Should tell you the owner" do
     @pm.owner.should eq @user.email
   end
+
   it "Should respond to 'do'" do
     @pm.respond_to?(:do).should eq true
   end
