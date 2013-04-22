@@ -7,16 +7,19 @@ devise_for :users
   get page, controller: 'static', action: page
 end
 
-namespace :dashboard do
-    # get '', to: 'dashboard#index', as: '/'
-    resources :monitors
-end
+# namespace :dashboard do
+#     # get '', to: 'dashboard#index', as: '/'
+#     resources :monitors
+# end
 
 resources :alerts
 
 
 # root :to => 'dashboard#index'
-root :to => 'static#about'
+authenticated :user do
+  root :to => "dashboard#index"
+end
+root :to => 'static#welcome'
 
 ActiveAdmin.routes(self)
 
