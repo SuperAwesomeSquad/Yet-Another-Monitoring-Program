@@ -12,13 +12,13 @@
 //
 
 // This is the default html and body font-size for the base em value.
-// $em-base: 16px;
+$em-base: 12px;
 
 // We use these to control various global styles
- $body-bg: #EEE;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
+// $body-bg: #fff;
+$body-font-color: #333;
+$body-font-family: "Roboto Condensed", sans-serif;
+$body-font-weight: 300;
 // $body-font-style: normal;
 
 // We use this to control font-smoothing
@@ -28,7 +28,7 @@
 // $text-direction: ltr;
 
 // We use these as default colors throughout
- $primary-color: #2E8B57;
+// $primary-color: #2E8B57;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -65,9 +65,9 @@
 // Grid Variables
 //
 
-// $row-width: 62.5em;
-// $column-gutter: 1.875em;
-// $total-columns: 12;
+//$row-width: 62.5em;
+//$column-gutter: 1.875em;
+$total-columns: 12;
 
 //
 // Block Grid Variables
@@ -85,14 +85,15 @@
 //
 
 // We use these to control header font styles
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
+$header-font-family: 'Roboto', sans-serif;
+$header-font-weight: 700;
+//$header-text-transform: uppercase;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: #808080;
 // $header-line-height: 1.4;
-// $header-top-margin: .2em;
-// $header-bottom-margin: .5em;
-// $header-text-rendering: optimizeLegibility;
+//$header-top-margin: .2em;
+$header-bottom-margin: .5em;
+//$header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
 // $h1-font-size: emCalc(44px);
@@ -114,8 +115,8 @@
 // $small-font-color: lighten($header-font-color, 30%);
 
 // We use these to style paragraphs
-// $paragraph-font-family: inherit;
-// $paragraph-font-weight: normal;
+$paragraph-font-family: "Roboto Condensed", sans-serif;
+$paragraph-font-weight: 300;
 // $paragraph-font-size: 1em;
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: emCalc(20px);
@@ -131,7 +132,7 @@
 // We use these to style anchors
 // $anchor-text-decoration: none;
 // $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+$anchor-font-color-hover: darken($primary-color, 15%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
