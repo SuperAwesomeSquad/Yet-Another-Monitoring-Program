@@ -8,7 +8,7 @@ devise_for :users
 end
 
 namespace :dashboard do
-    # get '', to: 'dashboard#index', as: '/'
+    get '', to: 'dashboard#index', as: '/'
     resources :monitors
 end
 

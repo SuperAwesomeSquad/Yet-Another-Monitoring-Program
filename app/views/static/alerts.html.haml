@@ -1,5 +1,7 @@
-<h2>Monitors in Alert</h2>
-<h4 class="subheader">Owned By You</h4>
-<% if @alerts.nil? %>
-<p>You have no active alerts</p>
-<% end %>
+.row
+  .large-9.columns
+		%h2 Monitors in Alert
+		%h4.subheader Owned By You
+		- if @alerts.nil?
+		%p You have no active alerts
+
