@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-feature 'Accessible dashboard' do
-	scenario "can visit dashboard" do
+feature 'Dashboard' do
+	scenario "is visible to logged in user" do
 		visit '/'
 		click_link 'Login'
   		fill_in 'Email', with: 'user@example.com'
@@ -9,9 +9,9 @@ feature 'Accessible dashboard' do
   		click_button 'Login'
 		current_path.should eq dashboard_path
 	end
-	# scenario "can toggle to alerts" do
-	# 	visit '/'
- #  		page.should have_link 'Alerts'
+	scenario "can toggle to alerts" do
+		click_link 'Alerts'
+ 	 	current_path.should eq
 	# end
 
 end
