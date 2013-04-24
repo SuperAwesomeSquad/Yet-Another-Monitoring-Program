@@ -18,15 +18,11 @@ module MonitorTemplate
 
   protected
   def create_basemonitor_object
-    self.BaseMonitor = BaseMonitor.new unless self.BaseMonitor
+    self.build_BaseMonitor unless self.BaseMonitor
   end
 
   def pretty_class
     self.class.to_s.titleize
   end
 
-  # def associate_basemonitor_with_user
-  #   self.BaseMonitor.user = @current_user
-  #   @current_user.BaseMonitors << self.BaseMonitor
-  # end
 end

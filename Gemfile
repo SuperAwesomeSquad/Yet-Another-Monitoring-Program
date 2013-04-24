@@ -29,6 +29,7 @@ group :test do
  gem "rspec-mocks"
  gem 'capybara'
  gem "factory_girl_rails", "~> 4.0"
+ gem 'timecop'
 end
 
 gem 'rspec-rails'
