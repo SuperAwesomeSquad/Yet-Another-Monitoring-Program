@@ -3,31 +3,66 @@
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title YetAnotherMonitoringProgram
+    %link{:href => href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Roboto:400,100,700', :rel => "stylesheet", :type => "text/css"}
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
-  %body
-    %p.notice= notice
-    %p.alert= alert
-    = link_to "About", about_path
-    |
-    = link_to "Contact", contact_path
-    |
-    = link_to "License", license_path
-    |
-    = link_to "Dashboard", dashboard_path
-    |
-    = link_to "Alerts", alerts_path
-    ||
-    - if user_signed_in?
-      Logged in as
-      %strong= current_user.email
-      = link_to 'Edit profile', edit_user_registration_path
+/ Header and Nav
+%div.header{ :style => "background:#EEE;padding-bottom:15px;" }
+  .row
+    .large-8.columns
+      %p.notice= notice
+      %p.alert= alert
+
+      / %h1
+      /   %img{:src => "http://placehold.it/400x100&text=Logo"}/
+
+      = link_to "Dashboard", dashboard_monitors_path
       |
-      = link_to "Logout", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Sign up", new_user_registration_path
-      |
-      = link_to "Login", new_user_session_path
-    = yield
+      = link_to "Alerts", alerts_path
+    .large-4.columns
+      %p.notice
+      %p.alert
+      %div.right{ :style => "float:right; margin-right:10px;" }
+        - if user_signed_in?
+          Logged in as
+          %strong= current_user.email
+          = link_to 'Edit profile', edit_user_registration_path
+          |
+          = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Sign Up", new_user_registration_path
+          |
+          = link_to "Log In", new_user_session_path
+
+/ End Header and Nav
+= yield
+
+/ Second Band (Image Left with Text)
+/ .row
+/   .large-4.columns
+/     %img{:src => "http://placehold.it/400x300&text=[img]"}/
+/   .large-8.columns
+/     %h4 This is a content section.
+/     .row
+/       .large-6.columns
+/         %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.
+/       .large-6.columns
+/         %p Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+
+/ Footer
+%footer.row
+  .large-12.columns
+    %hr/
+    .row
+      .large-6.columns
+        %p &copy; Copyright Super Awesome Squad, 2013.
+      .large-6.columns
+        %ul.inline-list.right
+          %li
+            = link_to "About", about_path
+          %li
+            = link_to "Contact", contact_path
+          %li
+            = link_to "License", license_path
