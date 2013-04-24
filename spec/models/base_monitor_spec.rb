@@ -3,10 +3,11 @@ require 'spec_helper'
 describe BaseMonitor do
 
   it "Belongs to a specific user" do
-    @user = FactoryGirl.create(:user)
-    @pm = PingMonitor.create
-    @user.BaseMonitors << @pm.BaseMonitor
-    @pm.BaseMonitor.user.id.should eq @user.id
+    user = FactoryGirl.create(:user)
+    pm = PingMonitor.create
+    bm = pm.create_BaseMonitor
+    bm.user = user
+    bm.user.id.should eq user.id
   end
 
   it "Tells you if the monitor is active (by default)" do
