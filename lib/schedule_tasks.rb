@@ -1,25 +1,25 @@
 module TaskHelper
 
-  def should_it_run?(datetime,monitor)
+  def should_it_run?(monitor,datetime=Time.zone.now)
     frequency = monitor.frequency
     active = monitor.active?
     if !active
       false
-    elsif monitor.frequency % minute == 0
+    elsif minute(datetime) % frequency  == 0
       true
-    elsif round_minute_to_next_hour(monitor.frequency) == hour
+    elsif round_minute_to_next_hour(frequency) == hour(datetime)
       true
-    elsif 0
+    elsif nil
       # Logic for daily tasks
-    elsif 0
+    elsif nil
       # Logic for weekly tasks
     else
       false
     end
   end
 
-  def minute
-    minute = Time.zone.now.strftime('%M').to_i
+  def minute(datetime=Time.zone.now)
+    minute = datetime.strftime('%M').to_i
     if minute == 0
       60
     else
@@ -27,12 +27,12 @@ module TaskHelper
     end
   end
 
-  def hour
-    Time.zone.now.strftime('%H')
+  def hour(datetime=Time.zone.now)
+    datetime.strftime('%H')
   end
 
-  def day_of_week
-    Time.zone.now.strftime('%A')
+  def day_of_week(datetime=Time.zone.now)
+    datetime.strftime('%A')
   end
 
 

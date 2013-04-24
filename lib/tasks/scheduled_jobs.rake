@@ -14,13 +14,7 @@ namespace :yamp do
   task :run_scheduled_minute => :environment do
     datetime = Time.zone.now
     select_tasks_range((60...3600)).each do |monitor|
-      puts monitor
-      if should_it_run?(datetime, monitor)
-        puts "I ran!"
-      else
-        puts "I didn't run!"
-      end
-      monitor.do if should_it_run?(datetime,monitor)
+      monitor.do if should_it_run?(monitor,datetime)
     end
   end
 
@@ -28,7 +22,7 @@ namespace :yamp do
   task :run_scheduled_hour => :environment do
     datetime = Time.zone.now
     select_tasks_range((3600...86400)).each do |monitor|
-      monitor.do if should_it_run?(datetime,monitor)
+      monitor.do if should_it_run?(monitor,datetime)
     end
   end
 
