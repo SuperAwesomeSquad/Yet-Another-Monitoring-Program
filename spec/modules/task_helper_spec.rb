@@ -21,64 +21,64 @@ describe TaskHelper do
   context "#should_it_run?" do
 
     it "Should run a */5 task at 16:05" do
-      @monitor = double("BaseMonitor")
-      @monitor.stub(:frequency).and_return(5)
-      @monitor.stub(:active?).and_return(true)
+      monitor = double("BaseMonitor")
+      monitor.stub(:frequency).and_return(5)
+      monitor.stub(:active?).and_return(true)
       Timecop.travel(2008, 10, 5,16,5) do
-        TaskHelper::should_it_run?(@monitor).should eq true
+        TaskHelper::should_it_run?(monitor).should eq true
       end
     end
     it "Should run a */5 task at 16:00" do
-      @monitor = double("BaseMonitor")
-      @monitor.stub(:frequency).and_return(5)
-      @monitor.stub(:active?).and_return(true)
+      monitor = double("BaseMonitor")
+      monitor.stub(:frequency).and_return(5)
+      monitor.stub(:active?).and_return(true)
       Timecop.travel(2008, 10, 5,16) do
-        TaskHelper::should_it_run?(@monitor).should eq true
+        TaskHelper::should_it_run?(monitor).should eq true
       end
     end
 
     it "Should not run a */5 task at 16:07" do
-      @monitor = double("BaseMonitor")
-      @monitor.stub(:frequency).and_return(5)
-      @monitor.stub(:active?).and_return(true)
+      monitor = double("BaseMonitor")
+      monitor.stub(:frequency).and_return(5)
+      monitor.stub(:active?).and_return(true)
       Timecop.travel(2008, 10, 5,16,7) do
-        TaskHelper::should_it_run?(@monitor).should eq false
+        TaskHelper::should_it_run?(monitor).should eq false
       end
     end
 
     it "Should run a */10 task at 16:10" do
-     @monitor = double("BaseMonitor")
-     @monitor.stub(:frequency).and_return(10)
-     @monitor.stub(:active?).and_return(true)
+     monitor = double("BaseMonitor")
+     monitor.stub(:frequency).and_return(10)
+     monitor.stub(:active?).and_return(true)
      Timecop.travel(2008, 10, 5,16,10) do
-      TaskHelper::should_it_run?(@monitor).should eq true
+      TaskHelper::should_it_run?(monitor).should eq true
     end
   end
 
     it "Should not run a */10 task at 16:05" do
-     @monitor = double("BaseMonitor")
-     @monitor.stub(:frequency).and_return(10)
-     @monitor.stub(:active?).and_return(true)
+     monitor = double("BaseMonitor")
+     monitor.stub(:frequency).and_return(10)
+     monitor.stub(:active?).and_return(true)
      Timecop.travel(2008, 10, 5,16,5) do
-      TaskHelper::should_it_run?(@monitor).should eq false
+      TaskHelper::should_it_run?(monitor).should eq false
     end
   end
 
     it "Should run an hourly task at 16:00" do
-      @monitor = double("BaseMonitor")
-      @monitor.stub(:frequency).and_return(60)
-      @monitor.stub(:active?).and_return(true)
+      monitor = double("BaseMonitor")
+      monitor.stub(:frequency).and_return(60)
+      monitor.stub(:active?).and_return(true)
       Timecop.travel(2008, 10, 5,16) do
-        TaskHelper::should_it_run?(@monitor).should eq true
+        TaskHelper::should_it_run?(monitor).should eq true
       end
     end
 
     it "Should not run an hourly task at 16:05" do
-      @monitor = double("BaseMonitor")
-      @monitor.stub(:frequency).and_return(60)
-      @monitor.stub(:active?).and_return(true)
+      monitor = double("BaseMonitor")
+      monitor.stub(:frequency).and_return(60)
+      monitor.stub(:active?).and_return(true)
       Timecop.travel(2008, 10, 5,16,5) do
-        TaskHelper::should_it_run?(@monitor).should eq false
+        TaskHelper::should_it_run?(monitor).should eq false
       end
     end
 
