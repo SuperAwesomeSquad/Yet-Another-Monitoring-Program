@@ -1,3 +1,5 @@
-%strong= current_user.email
-      = link_to 'Edit profile', edit_user_registration_path
-  = link_to "New Monitor", dashboard_monitors_path
+.row
+	.large-9.columns
+		%h2 Monitors
+		%h4.subheader
+= yield

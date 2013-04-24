@@ -12,7 +12,7 @@ feature 'Dashboard' do
 	scenario "can toggle to alerts" do
 		click_link 'Alerts'
  	 	current_path.should eq
-	# end
+	end
 
 end
 

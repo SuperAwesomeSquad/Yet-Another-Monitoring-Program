@@ -15,7 +15,10 @@ end
 resources :alerts
 
 
-# root :to => 'dashboard#index'
+# resources :monitors do
+#     resources :alerts
+# end
+
 # authenticated :user do
 #   root :to => "dashboard#index"
 # end
