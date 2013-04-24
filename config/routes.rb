@@ -1,17 +1,30 @@
 YetAnotherMonitoringProgram::Application.routes.draw do
-  require 'sidekiq/web'
+require 'sidekiq/web'
 
-  devise_for :users
+devise_for :users
 
-  %w[about contact license dashboard alerts].each do |page|
-    get page, controller: 'static', action: page
-  end
+%w[about contact license].each do |page|
+  get page, controller: 'static', action: page
+end
 
-  root :to => 'static#about'
+namespace :dashboard do
+    get '', to: 'dashboard#index', as: '/'
+    resources :monitors
+end
 
-  ActiveAdmin.routes(self)
+resources :alerts
 
-  mount Sidekiq::Web, at: '/sidekiq'
+
+# root :to => 'dashboard#index'
+# authenticated :user do
+#   root :to => "dashboard#index"
+# end
+
+root :to => 'static#welcome'
+
+ActiveAdmin.routes(self)
+
+mount Sidekiq::Web, at: '/sidekiq'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
