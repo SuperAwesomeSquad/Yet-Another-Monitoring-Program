@@ -32,7 +32,7 @@ group :test do
   gem 'capybara'
   gem "factory_girl_rails", "~> 4.0"
   gem 'timecop'
-  gem 'simplecov'
+  gem 'simplecov', :require => false
   gem "factory_girl_rails", "~> 4.0"
   gem 'capybara'
 end
