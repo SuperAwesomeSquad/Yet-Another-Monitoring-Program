@@ -1,0 +1,41 @@
+%h2 New Monitor
+
+%form_for(@monitor) do |f|
+%f.label :name
+%f.text_field :name
+%f.label :description
+%f.text_field :description
+%f.submit
+%end
+
+/ %simple_form_for(@Monitor) do |f|
+/   %f.error_notification
+/   %f.input :name
+/   %f.input :description
+/   %f.input :URL, label: "URL"
+/   %f.input :type
+/   %f.input :monitor_type, collection: "file", "web", "ping" , as: :radio_buttons
+/   %f.association :publisher %>
+/   %f.association :categories, as: :check_boxes
+/   %f.error :base
+/   %f.button :submit
+/ %end
+
+/ %link_to_add_fields "Add Question", f, :questions
+
+/ %form{ :action => "", :method => "post"}
+/   %fieldset
+/     %ol
+/       %li
+/         %label{:for => "name"} Name:
+/         %input{:type => "text", :name => "name", :class => "text"}
+/       %li
+/         %label{:for => "description"} Description:
+/         %input{:type => "text", :description => "description", :class => "text"}
+/       %li
+/         %label{:for => "URL"} URL:
+/         %input{:type => "text", :URL => "URL", :class => "text"}
+/       %li
+/         %label{:for => "body"} Message:
+/         %textarea{:name => "body"}
+/     %input{:type => "submit", :value => "Send", :class => "button"}

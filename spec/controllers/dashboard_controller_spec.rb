@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Dashboard' do
 	scenario "is visible to logged in user" do
 		visit '/'
-		click_link 'Login'
+		click_link 'Log In'
   		fill_in 'Email', with: 'user@example.com'
   		fill_in 'Password', with: 'secret'
   		click_button 'Login'

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :BaseMonitors
 
+
   def to_s
   	self.email
   end
