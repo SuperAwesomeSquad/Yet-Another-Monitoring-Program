@@ -9,8 +9,11 @@ end
 
 namespace :dashboard do
     get '', to: 'dashboard#index', as: '/'
-    resources :monitors
 end
+
+# match "dashboard" => "monitors#show"
+
+resources :monitors
 
 resources :alerts
 

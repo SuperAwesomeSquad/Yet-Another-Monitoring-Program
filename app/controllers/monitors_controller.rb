@@ -1,33 +1,44 @@
 class MonitorsController < ApplicationController
-before_filter :authenticate_user!
+# before_filter :authenticate_user!
 
 def index
-end
-
-def new
-  @monitor = BaseMonitor.new
+   @monitors = BaseMonitor.order("name")
 end
 
 def show
   @monitor = BaseMonitor.find(params[:id])
 end
 
-def create
-  @monitor = BaseMonitor.new(params[:monitor])
-  if @monitor.save
-    flash[:notice] = "Project has been created."
-    redirect_to @monitor
-  else
-  # nothing, yet end
+  def new
+    @monitor = BaseMonitor.new
   end
-##drop down? form will change
-##frequency
-##host information
-##partial form for ping; file;
-##cases?
+
+def create
+  @monitor = BaseMonitor.new(params[:id])
+    if @monitor.save
+      redirect_to @monitor, notice: "Successfully created monitor."
+    else
+      render :new
+    end
+ end
+
+def edit
+  @monitor = BaseMonitor.find(params[:id])
 end
 
-def delete
+def update
+  @monitor = BaseMonitor.find(params[:id])
+  if @monitor.update_attributes(params[:monitor])
+    redirect_to @monitor, notice: "Successfully created monitor."
+  else
+    render :edit
+  end
+end
+
+def destroy
+  @monitor = BaseMonitor.find(params[:id])
+  @monitor.destroy
+  redirect_to monitors_url, notice: "Successfully deleted a monitor."
 end
 
 end
