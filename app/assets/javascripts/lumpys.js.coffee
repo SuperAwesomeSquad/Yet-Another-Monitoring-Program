@@ -16,5 +16,6 @@
 # document.write =image_tag(images[index])
 
 images = ['easter_egg/lsp_gif.gif','easter_egg/lsp_gif_2.gif','easter_egg/lsp_gif_3.gif','easter_egg/lsp_gif_4.gif']
+# document.getElementById("imageContainer").appendChild('<img src="assets/' + images[Math.floor(Math.random() * images.length)] + '">');
 
-$('<img src="assets/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('#imageContainer');
+$('<img src="assets/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo($('#imageContainer'))
