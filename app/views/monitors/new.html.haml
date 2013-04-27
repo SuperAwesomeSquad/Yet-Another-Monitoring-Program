@@ -1,6 +1,40 @@
 .row
   .large-12.columns
 
-  %h2 New Monitor
+    %h2 New Monitor
+     / .fieldset
 
-  =render :partial => "form"
+    / %form_for(@new_monitor) do |f|
+    / %f.label :name
+    / %f.text_field :name
+    / %f.label :description
+    / %f.text_field :description
+    / %f.submit
+    / %end
+    / .fieldset
+    / = simple_form_for @new_monitor do |f|
+    /     / = f.input :name
+    /     / = f.input :description
+    / = f.input :hostname, hint: "The website YAMP should monitor"
+    / = f.input :frequency, collection: 1..5, as: :radio_buttons
+    / = f.error :base
+    / .form-actions
+    / = f.button :submit
+    / = link_to 'Cancel', :back
+
+    - form_for @new_monitor, '/new', :id => 'new' do |f|
+    = f.error_messages
+    %p
+    = f.label :name
+    = f.text_field :name
+    %p
+    = f.label :description
+    = f.text_field :description
+    %p
+    = f.label :hostname
+    = f.password_field :hostname
+    %p
+    = f.submit "Create", :class => 'button'
+
+
+  / =render :partial => "form"

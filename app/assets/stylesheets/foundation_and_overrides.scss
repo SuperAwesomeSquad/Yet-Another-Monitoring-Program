@@ -237,7 +237,7 @@ $anchor-font-color-hover: darken($primary-color, 15%);
 
 // We use these to build padding for buttons.
 // $button-med: emCalc(12px);
-// $button-tny: emCalc(7px);
+$button-tny: emCalc(7px);
 // $button-sml: emCalc(9px);
 // $button-lrg: emCalc(16px);
 
@@ -250,7 +250,7 @@ $anchor-font-color-hover: darken($primary-color, 15%);
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16px);
-// $button-font-tny: emCalc(11px);
+$button-font-tny: emCalc(10px);
 // $button-font-sml: emCalc(13px);
 // $button-font-lrg: emCalc(20px);
 // $button-font-weight: bold;

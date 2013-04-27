@@ -5,28 +5,38 @@ describe "the monitor creation process", :type => :feature do
   #   User.make(:email => 'user@yamp.com', :password => 'password')
   # end
 
-  it "shows me my monitors" do
-     visit '/dashboard/monitors'
-     page.should have_content 'Monitors'
-  end
+  it "can create a project" do
+    visit '/'
+    click_link 'New Monitor'
+    fill_in 'Name', :with => 'Google'
+    fill_in 'Description', :with => "My ping monitor for Google"
+    fill_in 'Hostname', :with => 'google.com'
+    click_button 'Create Monitor'
+    page.should have_content('Monitor has been created.')
+end
 
-  it "lets me add a monitor" do
-     visit '/dashboard/monitors'
-     click_link 'New Monitor'
-     #from capybara wiki
-     #form methods
-     fill_in('Name', :with => 'Google')
-     fill_in('Description', :with => 'My Google Monitor')
-     fill_in('URL', :with => 'google.com')
+  # it "shows me my monitors" do
+  #    visit '/dashboard/monitors'
+  #    page.should have_content 'Monitors'
+  # end
 
-     choose('Monitor Type')
-     # radio button: ping, file, etc.
+  # it "lets me add a monitor" do
+  #    visit '/dashboard/monitors'
+  #    click_link 'New Monitor'
+  #    #from capybara wiki
+  #    #form methods
+  #    fill_in('Name', :with => 'Google')
+  #    fill_in('Description', :with => 'My Google Monitor')
+  #    fill_in('URL', :with => 'google.com')
+
+  #    choose('Monitor Type')
+  #    # radio button: ping, file, etc.
 
 
-     check('Choose Frequency')
-     # checkboxes: hourly/daily/weekly/monthly
+  #    check('Choose Frequency')
+  #    # checkboxes: hourly/daily/weekly/monthly
 
-  end
+  # end
 
   it "lets me edit an existing monitor" do
      pending
