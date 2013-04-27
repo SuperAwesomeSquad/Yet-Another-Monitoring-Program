@@ -14,6 +14,10 @@ end
 
 resources :alerts
 
+get '/lsp',
+  :to => 'lumpys#index',
+  :as => 'lsp'
+
 
 # root :to => 'dashboard#index'
 # authenticated :user do

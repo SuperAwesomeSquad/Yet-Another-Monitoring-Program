@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require lumpys
 //= require_tree .
 
 $(document).foundation();
