@@ -3,23 +3,11 @@
     .large-6.columns
       %h1
         LSP 4 LYFE
-      / - if @image_random == 0
-      /   =image_tag ('easter_egg/lsp_gif.gif')
-      / - elsif @image_random == 1
-      /   =image_tag ('easter_egg/lsp_gif_2.gif')
-      / - else
-      / =image_tag ('easter_egg/lsp_gif_4.gif')
-      %div#imageContainer
 
+      %div#imageContainer
+        =image_tag("easter_egg/lsp_gif_#{@image_index}.gif")
 
     .large-6.columns
       %div.top{ :style => "margin-top:110px;" }
         %h3
           =generate_saying
-
-      // :javascript
-      //       var images = new Array('images/easter_egg/lsp_gif.gif', 'images/easter_egg/lsp_gif_2.gif','images/easter_egg/lsp_gif_3.gif','images/easter_egg/lsp_gif_4.gif');
-      //       var l = images.length;
-      //       var random_no = Math.floor(l*Math.random());
-      //       document.getElementById("image_load").src = images[random_no];
-      //     }
