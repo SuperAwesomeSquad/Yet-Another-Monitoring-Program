@@ -9,7 +9,7 @@ feature 'Easter Eggs' do
 
   scenario 'dynamically generate image' do
     visit lsp_path
-    within("#imageContainer"){page.should have_content "img"}
+    page.should have_css "#imageContainer"
   end
 
 end
