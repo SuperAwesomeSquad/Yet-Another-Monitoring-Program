@@ -1,6 +1,7 @@
 class PingWorker
 	include Sidekiq::Worker
 	include WorkerTemplate
+	sidekiq_options :retry => false
 
 	def perform(ping_id)
 		monitor = PingMonitor.find(ping_id)

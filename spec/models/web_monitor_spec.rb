@@ -2,26 +2,38 @@ require 'spec_helper'
 
 describe WebMonitor do
   before do
-    @wm = WebMonitor.create(url: 'http://www.google.com')
+    @wm = WebMonitor.new(url: 'google.com')
+    @bm = @wm.create_BaseMonitor
+    @wm.save
     @user = FactoryGirl.create(:user)
-    @user.BaseMonitors << @wm.BaseMonitor
+    @bm.user = @user
   end
+
   it "Has an Associated BaseMonitor" do
     @wm.BaseMonitor.class.should eq BaseMonitor
   end
+
   it "Displays the hostname its monitoring" do
-    @wm.to_s.should eq "Web Monitor for #{@wm.url}"
+    @bm.to_s.should eq "Web Monitor for #{@wm.url}"
   end
+
   it "Handles undefined hosts" do
-    WebMonitor.create.to_s.should eq "Web Monitor for unknown object"
+    wm = WebMonitor.new
+    bm = wm.create_BaseMonitor
+    wm.save
+    bm.to_s.should eq "Web Monitor for unknown object"
   end
+
   it "Responds to .type as 'Web Monitor'" do
-    @wm.type.should eq "Web Monitor"
+    @bm.type.should eq "Web Monitor"
   end
+
   it "Should tell you the owner" do
-    @wm.owner.should eq @user.email
+    @bm.owner.should eq @user.email
   end
+
   it "Should respond to 'do'" do
-    @wm.respond_to?(:do).should eq true
+    @bm.respond_to?(:do).should eq true
   end
+
 end

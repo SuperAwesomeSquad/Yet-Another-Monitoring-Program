@@ -1,6 +1,7 @@
 class WebWorker
   include Sidekiq::Worker
   include WorkerTemplate
+  sidekiq_options :retry => false
 
   def perform(web_monitor_id)
     web_monitor = WebMonitor.find(web_monitor_id)

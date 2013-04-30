@@ -3,9 +3,11 @@ require 'spec_helper'
 describe PingMonitor do
 
   before do
-    @pm = PingMonitor.create(hostname: 'example.com')
+    @pm = PingMonitor.new(hostname: 'example.com')
+    @bm = @pm.create_BaseMonitor
+    @pm.save
     @user = FactoryGirl.create(:user)
-    @user.BaseMonitors << @pm.BaseMonitor
+    @bm.user = @user
   end
 
   it "Has an Associated BaseMonitor" do
@@ -13,23 +15,26 @@ describe PingMonitor do
   end
 
   it "Displays the hostname its monitoring" do
-    @pm.to_s.should eq "Ping Monitor for #{@pm.hostname}"
+    @bm.to_s.should eq "Ping Monitor for #{@pm.hostname}"
   end
 
   it "Handles undefined hosts" do
-    PingMonitor.create.to_s.should eq "Ping Monitor for unknown object"
+    pm = PingMonitor.new
+    bm = pm.create_BaseMonitor
+    pm.save
+    bm.to_s.should eq "Ping Monitor for unknown object"
   end
 
   it "Responds to .type as 'Ping Monitor'" do
-    @pm.type.should eq "Ping Monitor"
+    @bm.type.should eq "Ping Monitor"
   end
 
   it "Should tell you the owner" do
-    @pm.owner.should eq @user.email
+    @bm.owner.should eq @user.email
   end
 
   it "Should respond to 'do'" do
-    @pm.respond_to?(:do).should eq true
+    @bm.respond_to?(:do).should eq true
   end
 
 end
