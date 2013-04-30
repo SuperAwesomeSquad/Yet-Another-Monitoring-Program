@@ -17,6 +17,10 @@ resources :monitors
 
 resources :alerts
 
+get '/lsp',
+  :to => 'lumpys#index',
+  :as => 'lsp'
+
 
 # resources :monitors do
 #     resources :alerts

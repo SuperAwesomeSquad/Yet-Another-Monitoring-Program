@@ -1,0 +1,13 @@
+.row
+  .large-12.columns
+    .large-6.columns
+      %h1
+        LSP 4 LYFE
+
+      %div#imageContainer
+        =image_tag("easter_egg/lsp_gif_#{@image_index}.gif")
+
+    .large-6.columns
+      %div.top{ :style => "margin-top:110px;" }
+        %h3
+          =generate_saying

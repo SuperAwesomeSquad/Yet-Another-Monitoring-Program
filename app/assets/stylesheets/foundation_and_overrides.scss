@@ -148,10 +148,14 @@ $anchor-font-color-hover: darken($primary-color, 15%);
 // $definition-list-margin-bottom: emCalc(12px);
 
 // We use these to style blockquotes
-// $blockquote-font-color: lighten($header-font-color, 30%);
-// $blockquote-padding: emCalc(9px) emCalc(20px) 0 emCalc(19px);
-// $blockquote-border: 1px solid #ddd;
-// $blockquote-cite-font-size: emCalc(13px);
+$blockquote-font-color: darken($header-font-color, 30%);
+$blockquote-font-family: 'Roboto', sans-serif;
+$blockquote-font-weight: 700;
+$blockquote-margin: 30px 10px;
+$blockquote-padding: 40px 10px;
+//$blockquote-background:#f9f9f9;
+$blockquote-display:inline;
+//$blockquote-font-size: emCalc(18px);
 // $blockquote-cite-font-color: lighten($header-font-color, 20%);
 // $blockquote-cite-link-color: $blockquote-cite-font-color;
 
@@ -1009,5 +1013,5 @@ $button-font-tny: emCalc(10px);
 // $topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width "#{$topbar-breakpoint}")";
 
-
 @import 'foundation';
+
