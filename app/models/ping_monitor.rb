@@ -7,14 +7,15 @@ class PingMonitor < ActiveRecord::Base
   accepts_nested_attributes_for :base_monitor
 
 
-  include MonitorTemplate
+include MonitorTemplate
 
-  def monitored_thing
-    self.hostname
-  end
 
-  def do
-    PingWorker.perform_async(self.id)
-  end
+def monitored_thing
+  self.hostname
+end
+
+def do
+   PingWorker.perform_async(self.id)
+end
 
 end

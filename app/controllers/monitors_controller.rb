@@ -9,12 +9,12 @@ def show
   @new_monitor = PingMonitor.find(params[:id])
 end
 
-  def new
-    @new_monitor = Monitor.new
-  # ActiveRecord::Base.transaction do
+def new
+  @new_monitor = PingMonitor.new
+  # ActiveRecord::Ping.transaction do
   #   PingMonitor.save!
   # end
-  end
+end
 
 def create
   @new_monitor = PingMonitor.new(params[:id])
