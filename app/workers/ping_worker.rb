@@ -2,7 +2,7 @@ class PingWorker
 	include Sidekiq::Worker
 	include WorkerTemplate
 	sidekiq_options :retry => false
-
+	# This is derpy
 	PingMonitorResult = Struct.new(:successful, :return_object, :duration)
 
 	def perform(ping_id)
@@ -14,37 +14,38 @@ class PingWorker
 		end
 	end
 
-	def do_ping(monitor)
-		ping = Net::Ping::External.new(@monitor.hostname)
-		ping.ping
+	def do_ping(monitor=@monitor)
+		ping = Net::Ping::External.new(monitor.hostname)
+		ping.ping # >8U
 		if ping.exception
-			result = PingMonitorResult.new
-			result.successful = false
+			result = PingMonitorResult.new(successful: false)
 		else
-			result = PingMonitorResult.new
-			result.successful = true
-			duration = ping.duration
+			result = PingMonitorResult.new(successful: false, duration: ping.duration)
 		end
-		log_results(result)
+		create_result(result)
+		save_result(@p)
 	end
 
-	def log_results(result)
-		if ping.exception
-			p = @monitor.PingResults.build(
+	def create_result(result)
+		if result.successful
+			@p = PingResult.new(
 				successful: result.successful,
-				duration: 'null'
+				duration: result.duration
 				)
-			create_alert
+			# create_alert
 		else
-			p = @monitor.PingResults.build(
+			@p = PingResult.new(
 				successful: result.successful,
 				duration: result.duration
 				)
 		end
-		p.save
 	end
 
-	def find_monitor
+	def save_result(result)
+		result.save
+	end
+
+	def find_monitor(ping_id)
 		monitor = PingMonitor.find_by_id(ping_id)
 		if monitor
 			monitor
