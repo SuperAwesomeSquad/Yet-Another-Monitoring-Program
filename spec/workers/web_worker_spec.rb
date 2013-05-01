@@ -41,6 +41,7 @@ describe WebWorker do
     monitor.stub(:status_code).and_return(200)
     monitor.stub(:exception).and_return(nil)
     @ww.create_result(monitor).successful.should be_true
+    @ww.create_result(monitor).exception.should be_false
   end
   it "Will return a built WebResult fail on HTTP 304" do
     monitor = double("monitor")
@@ -48,6 +49,7 @@ describe WebWorker do
     monitor.stub(:status_code).and_return(304)
     monitor.stub(:exception).and_return(nil)
     @ww.create_result(monitor).successful.should be_false
+    @ww.create_result(monitor).exception.should be_false
   end
    it "Will note an exception on a Net::HTTP.ping exception" do
     monitor = double("monitor")
@@ -55,6 +57,7 @@ describe WebWorker do
     monitor.stub(:status_code).and_return(nil)
     monitor.stub(:exception).and_return(true)
     @ww.create_result(monitor).successful.should be_false
+    @ww.create_result(monitor).exception.should be_true
   end
 end
 
