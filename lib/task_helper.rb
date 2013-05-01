@@ -28,7 +28,7 @@ module TaskHelper
   end
 
   def hour(datetime=Time.zone.now)
-    datetime.strftime('%H')
+    datetime.strftime('%H').to_i
   end
 
   def day_of_week(datetime=Time.zone.now)
@@ -38,6 +38,23 @@ module TaskHelper
 
   def select_tasks_range(range)
     BaseMonitor.where(active: true, frequency_in_seconds: range)
+  end
+
+  def select_hourly_tasks(frequency=:hourly)
+    frequency_in_seconds = case frequency
+    when :hourly
+      3600
+    when :sixhourly
+      3600*6
+    when :twelvehourly
+      3600*12
+    end
+
+    BaseMonitor.where(active: true, frequency_in_seconds: frequency_in_seconds)
+  end
+
+  def select_daily_tasks
+    # BaseMonitor.
   end
 
   def select_all_tasks
