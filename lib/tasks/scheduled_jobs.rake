@@ -1,4 +1,4 @@
-require "#{Rails.root}/lib/schedule_tasks.rb"
+require "#{Rails.root}/lib/task_helper.rb"
 include TaskHelper
 
 namespace :yamp do
@@ -21,8 +21,18 @@ namespace :yamp do
 
   task :run_scheduled_hour => :environment do
     datetime = Time.zone.now
-    select_tasks_range((3600...86400)).each do |monitor|
-      monitor.do if should_it_run?(monitor,datetime)
+    if hour(datetime) % 6 == 0
+      select_hourly_tasks(:sixhourly).each do |monitor|
+        monitor.do
+      end
+    end
+    if hour(datetime) % 12 == 0
+      select_hourly_tasks(:twelvehourly).each do |monitor|
+        monitor.do
+      end
+    end
+    select_hourly_tasks.each do |monitor|
+      monitor.do
     end
   end
 
