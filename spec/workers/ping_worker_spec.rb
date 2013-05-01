@@ -27,28 +27,29 @@ describe PingWorker do
       prior_total = PingMonitor.all.size
       @pw.save_result(
         PingResult.new(
-          )
-        ).should be_true
+        )
+      ).should be_true
     end
   end
 
   context "create_result" do
-   it "Will return a built PingResult with successful on success" do
-    monitor = double("monitor")
-    monitor.stub(:successful).and_return(true)
-    monitor.stub(:duration).and_return(5)
-    @pw.create_result(monitor).successful.should be_true
+    it "Will return a built PingResult with successful on success" do
+      monitor = double("monitor")
+      monitor.stub(:successful).and_return(true)
+      monitor.stub(:duration).and_return(5)
+      @pw.create_result(monitor).successful.should be_true
+    end
+    it "Will return a built Pingresult with fail on fail" do
+      monitor = double("monitor")
+      monitor.stub(:successful).and_return(false)
+      monitor.stub(:duration).and_return(5)
+      @pw.create_result(monitor).successful.should be_false
+    end
   end
-  it "Will return a built Pingresult with fail on fail" do
-    monitor = double("monitor")
-    monitor.stub(:successful).and_return(false)
-    monitor.stub(:duration).and_return(5)
-    @pw.create_result(monitor).successful.should be_false
-  end
-end
 
-context "do_ping" do
-  it "Should catch an exception with the ping itself"
-end
+  context "do_ping" do
+    it "Should catch an exception with the ping itself"
+
+  end
 
 end
