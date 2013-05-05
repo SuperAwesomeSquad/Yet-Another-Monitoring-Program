@@ -20,7 +20,9 @@ end
 
 resources :monitors
 
-resources :alerts
+resources :alerts, :monitor_test
+
+#polymorphic_path([test, subtest])
 
 get '/lsp',
   :to => 'lumpys#index',
