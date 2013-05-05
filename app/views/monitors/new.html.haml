@@ -4,7 +4,7 @@
 
     .fieldset
       = simple_form_for @new_monitor do |f|
-        = f.input :hostname
+        = f.input :name
         / = f.input :Notes,  as: :text
         %p
           = f.button :submit

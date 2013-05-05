@@ -19,3 +19,22 @@ def do
 end
 
 end
+class PingMonitor < ActiveRecord::Base
+  attr_accessible :hostname, :BaseMonitor_attributes
+  has_many :PingResults
+  has_one :BaseMonitor, as: :monitorable
+  has_one :BaseMonitor, as: :monitor
+
+  accepts_nested_attributes_for :BaseMonitor
+
+  include MonitorTemplate
+
+  def monitored_thing
+    self.hostname
+  end
+
+  def do
+    PingWorker.perform_async(self.id)
+  end
+
+end

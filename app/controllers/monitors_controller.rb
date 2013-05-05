@@ -2,22 +2,22 @@ class MonitorsController < ApplicationController
 # before_filter :authenticate_user!
 
 def index
-   @new_monitor = PingMonitor.order("name")
+   @new_monitor = BaseMonitor.order("name")
 end
 
 def show
-  @new_monitor = PingMonitor.find(params[:id])
+  @new_monitor = BaseMonitor.find(params[:id])
 end
 
 def new
-  @new_monitor = PingMonitor.new
-  # ActiveRecord::Ping.transaction do
-  #   PingMonitor.save!
+  @new_monitor = BaseMonitor.new
+  # ActiveRecord::Base.transaction do
+  #   BaseMonitor.save!
   # end
 end
 
 def create
-  @new_monitor = PingMonitor.new(params[:id])
+  @new_monitor = BaseMonitor.new(params[:id])
     if @new_monitor.save
       redirect_to @new_monitor, notice: "Successfully created monitor."
     else
@@ -26,11 +26,11 @@ def create
  end
 
 def edit
-  @new_monitor = PingMonitor.find(params[:id])
+  @new_monitor = BaseMonitor.find(params[:id])
 end
 
 def update
-  @new_monitor = PingMonitor.find(params[:id])
+  @new_monitor = BaseMonitor.find(params[:id])
   if @new_monitor.update_attributes(params[:new_monitor])
     redirect_to @new_monitor, notice: "Successfully created monitor."
   else
@@ -39,7 +39,7 @@ def update
 end
 
 def destroy
-  @new_monitor = PingMonitor.find(params[:id])
+  @new_monitor = BaseMonitor.find(params[:id])
   @new_monitor.destroy
   redirect_to monitors_url, notice: "Successfully deleted a monitor."
 end

@@ -2,6 +2,7 @@ YetAnotherMonitoringProgram::Application.routes.draw do
 require 'sidekiq/web'
 
 devise_for :users
+root :to => 'static#welcome'
 
 %w[about contact license].each do |page|
   get page, controller: 'static', action: page
@@ -10,6 +11,10 @@ end
 namespace :dashboard do
     get '', to: 'dashboard#index', as: '/'
 end
+
+# %w[base_monitor ping_monitor web_monitor file_monitors].each do |page|
+#   get page, controller: 'monitors_controller', action: page
+# end
 
 # match "dashboard" => "monitors#show"
 
@@ -30,7 +35,7 @@ get '/lsp',
 #   root :to => "dashboard#index"
 # end
 
-root :to => 'static#welcome'
+
 
 ActiveAdmin.routes(self)
 
