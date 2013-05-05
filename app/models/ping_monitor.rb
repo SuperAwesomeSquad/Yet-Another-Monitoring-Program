@@ -24,7 +24,6 @@ class PingMonitor < ActiveRecord::Base
   has_many :PingResults
   has_one :BaseMonitor, as: :monitorable
 
-
   accepts_nested_attributes_for :BaseMonitor
 
   include MonitorTemplate

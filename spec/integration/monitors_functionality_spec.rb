@@ -8,9 +8,8 @@ describe "the monitor creation process", :type => :feature do
   it "can create a project" do
     visit '/'
     click_link 'New Monitor'
-    fill_in 'Name', :with => 'Google'
+    fill_in 'Hostname', :with => 'Google'
     fill_in 'Description', :with => "My ping monitor for Google"
-    fill_in 'Hostname', :with => 'google.com'
     click_button 'Create Monitor'
     page.should have_content('Monitor has been created.')
 end

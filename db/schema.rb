@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418160329) do
+ActiveRecord::Schema.define(:version => 20130505210751) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130418160329) do
     t.integer  "user_id"
     t.integer  "frequency_in_seconds", :default => 300
     t.boolean  "active",               :default => true
+    t.string   "description"
   end
 
   add_index "base_monitors", ["frequency_in_seconds"], :name => "index_base_monitors_on_frequency_in_seconds"

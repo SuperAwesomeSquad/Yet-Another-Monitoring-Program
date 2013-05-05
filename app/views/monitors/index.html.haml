@@ -2,5 +2,13 @@
   .large-9.columns
     %h2 Monitors
     %h4.subheader
+    = link_to "All Monitors", monitors_path
+    |
     = link_to "New Monitor", new_monitor_path
-= yield
+    %p
+    - @monitors.each do |monitor|
+      %p
+      =monitor
+      %br
+      =monitor.inspect
+

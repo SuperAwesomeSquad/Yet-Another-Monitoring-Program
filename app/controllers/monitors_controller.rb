@@ -1,28 +1,38 @@
 class MonitorsController < ApplicationController
-# before_filter :authenticate_user!
+before_filter :authenticate_user!
 
 def index
-   @new_monitor = BaseMonitor.order("name")
+    @monitors = BaseMonitor.all
+   # @new_monitor = BaseMonitor.order("name")
 end
 
 def show
-  @new_monitor = BaseMonitor.find(params[:id])
+  @pingmonitor = BaseMonitor.find(params[:id])
 end
 
 def new
-  @new_monitor = BaseMonitor.new
+  @pingmonitor = PingMonitor.new
+  @basemonitor = @pingmonitor.build_BaseMonitor
+  # @new_monitor = BaseMonitor.new
   # ActiveRecord::Base.transaction do
   #   BaseMonitor.save!
   # end
 end
 
 def create
-  @new_monitor = BaseMonitor.new(params[:id])
-    if @new_monitor.save
-      redirect_to @new_monitor, notice: "Successfully created monitor."
+  @pingmonitor = PingMonitor.new(params[:ping_monitor])
+    if @pingmonitor.save
+      flash[:notice] = "Monitor has been created!"
     else
-      render :new
+      render :new, flash[:notice] = "Monitor was not saved!"
     end
+    redirect_to monitors_path
+  # @new_monitor = BaseMonitor.new(params[:id])
+  #   if @new_monitor.save
+  #     redirect_to @new_monitor, notice: "Successfully created monitor."
+  #   else
+  #     render :new
+  #   end
  end
 
 def edit

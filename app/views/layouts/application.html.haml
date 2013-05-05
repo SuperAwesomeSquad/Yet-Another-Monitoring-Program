@@ -12,9 +12,8 @@
 %div.header{ :style => "background:#EEE;padding-bottom:15px;" }
   .row
     .large-8.columns
-      %p.notice= notice
-      %p.alert= alert
-
+      %p
+      %p
       / %h1
       /   %img{:src => "http://placehold.it/400x100&text=Logo"}/
 
@@ -22,8 +21,8 @@
       |
       = link_to "Alerts", alerts_path
     .large-4.columns
-      %p.notice
-      %p.alert
+      %p
+      %p
       %div.right{ :style => "float:right; margin-right:10px;" }
         - if user_signed_in?
           Logged in as
@@ -37,7 +36,11 @@
           = link_to "Log In", new_user_session_path
 
 / End Header and Nav
-
+%div.content
+  .row
+    .large-12.columns
+      %p.notice= notice
+      %p.alert= alert
 = yield
 
 / Second Band (Image Left with Text)
