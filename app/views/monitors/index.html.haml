@@ -8,7 +8,7 @@
     %p
     - @monitors.each do |monitor|
       %p
-      =monitor
+      =link_to monitor.description
       %br
       =monitor.inspect
 

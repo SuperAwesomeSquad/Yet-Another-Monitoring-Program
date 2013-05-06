@@ -1,23 +1,36 @@
 require 'spec_helper'
 
-describe "the monitor creation process", :type => :feature do
+describe "monitors", :type => :feature do
   # before :each do
   #   User.make(:email => 'user@yamp.com', :password => 'password')
   # end
 
-  it "can create a project" do
+  it "can be created" do
     visit '/'
     click_link 'New Monitor'
-    fill_in 'Hostname', :with => 'Google'
-    fill_in 'Description', :with => "My ping monitor for Google"
+    fill_in('Hostname', :with => 'Google.com')
+    fill_in('Name', :with => 'Google')
+    fill_in('Description', :with => "My ping monitor for Google")
     click_button 'Create Monitor'
     page.should have_content('Monitor has been created.')
 end
 
-  # it "shows me my monitors" do
-  #    visit '/dashboard/monitors'
-  #    page.should have_content 'Monitors'
-  # end
+  it "cannot be created without a name" do
+    visit '/'
+    click_link 'New Monitor'
+    click_button 'Create Monitor'
+    page.should have_content("Monitor has not been created.")
+    page.should have_content("Name can't be blank")
+  end
+
+  it "can be shown" do
+    monitor = Factory.create(:monitor, :name => "Google")
+    visit '/monitors'
+    click_link 'All Monitors'
+    click_link 'Google'
+    page.current_url.should == monitor_url(monitor)
+  end
+
 
   # it "lets me add a monitor" do
   #    visit '/dashboard/monitors'
@@ -37,43 +50,12 @@ end
 
   # end
 
-  it "lets me edit an existing monitor" do
+  it "can be edited" do
      pending
   end
 
-  it "lets me delete an existing monitor" do
+  it "can be deleted" do
      pending
   end
 
 end
-
-# feature 'Monitors' do
-#   scenario "are indexed" do
-#     visit '/'
-#     click_link 'Dashboard'
-#     page.should have_content 'Monitors'
-#   end
-# end
-
-# feature 'Monitors' do
-#     scenario "can be created" do
-#     visit '/dashboard/monitors'
-#     click_link('New Monitor')
-#     fill_in 'Name', :with => 'Google'
-#     fill_in 'URL', :with => "google.com"
-#     click_button 'Create Monitor'
-#     page.should have_content('Monitor has been created.')
-#   end
-# end
-
-# feature 'Edit Monitors' do
-#     scenario "can edit a monitor" do
-#       pending
-#    # visit '/'
-#    # click_link 'Edit Monitor'
-#    # fill_in 'Name', :with => 'Google'
-#    # fill_in 'URL', :with => "google.com"
-#    # click_button 'Edit Monitor'
-#    # page.should have_content('Monitor has been updated.')
-#   end
-# end
