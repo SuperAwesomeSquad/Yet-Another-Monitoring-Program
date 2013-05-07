@@ -1,9 +1,17 @@
-= simple_form_for @new_monitor, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :name
-  = f.input :description
-  = f.input :URL
-  = f.input :frequency_in_seconds
-   .form-actions
-    = f.button :submit
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
-%end
+.row
+  .large-9.columns
+
+    .fieldset
+    = simple_form_for @pingmonitor,:url=>'/monitors/' do |f|
+      / = f.input :hostname
+      = f.simple_fields_for :BaseMonitor do |base_monitor|
+        / =base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ "Ping Monitor"], collection:["Ping Monitor", "File Monitor", "Web Monitor"], as: :check_boxes
+        %p
+        = base_monitor.input :name
+        = base_monitor.input :description
+
+        %p
+        = base_monitor.input :frequency_in_seconds, priority: [ 300], collection: [ 100, 200, 300, 400, 500, 600, 700, 800, 900], as: :radio_buttons
+        %p
+      = f.error :base
+      = f.button :submit, 'Create Monitor' , :class => "button small"

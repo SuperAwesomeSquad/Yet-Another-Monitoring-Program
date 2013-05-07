@@ -2,17 +2,17 @@ class MonitorsController < ApplicationController
 before_filter :authenticate_user!
 
 def index
-    @monitors = BaseMonitor.all(params[:name])
+    @pingmonitors = BaseMonitor.all(params[:name])
    # @new_monitor = BaseMonitor.order("name")
 end
 
 def show
-  @monitor = BaseMonitor.find(params[:id])
+  @pingmonitor = BaseMonitor.find(params[:id])
 end
 
 def new
-  @monitor = PingMonitor.new
-  @basemonitor = @monitor.build_BaseMonitor
+  @pingmonitor = PingMonitor.new
+  @basemonitor = @pingmonitor.build_BaseMonitor
   # @new_monitor = BaseMonitor.new
   # ActiveRecord::Base.transaction do
   #   BaseMonitor.save!
@@ -20,14 +20,14 @@ def new
 end
 
 def create
-  @monitor = PingMonitor.new(params[:ping_monitor])
-  # @monitor.user = current_user
-    if @monitor.save
+  @pingmonitor = PingMonitor.new(params[:ping_monitor])
+  # @pingmonitor.user = current_user
+    if @pingmonitor.save
       flash[:notice] = "Monitor has been created!"
     else
       flash[:notice] = "Monitor was not saved!"
     end
-    redirect_to monitors_path
+    redirect_to monitor_path
   # @new_monitor = BaseMonitor.new(params[:id])
   #   if @new_monitor.save
   #     redirect_to @new_monitor, notice: "Successfully created monitor."
@@ -37,21 +37,22 @@ def create
  end
 
 def edit
-  @monitor = BaseMonitor.find(params[:id])
+  @pingmonitor = BaseMonitor.find(params[:id])
 end
 
 def update
-  @monitor = BaseMonitor.find(params[:id])
-  if @monitor.update_attributes(params[:new_monitor])
-    redirect_to @monitor, notice: "Successfully created monitor."
+  @pingmonitor = BaseMonitor.find(params[:id])
+  if @pingmonitor.update_attributes(params[:pingmonitor])
+    redirect_to @pingmonitor, success: "Successfully updated monitor."
   else
-    render :edit
+    redirect_to @pingmonitor, success: "Monitor has not been updated."
+    render :action => "edit"
   end
 end
 
 def destroy
-  @monitor = BaseMonitor.find(params[:id])
-  @monitor.destroy
+  @pingmonitor = BaseMonitor.find(params[:id])
+  @pingmonitor.destroy
   redirect_to monitors_url, notice: "Successfully deleted a monitor."
 end
 

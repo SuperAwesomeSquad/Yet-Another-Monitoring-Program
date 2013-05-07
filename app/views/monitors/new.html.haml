@@ -1,40 +1,20 @@
 .row
   .large-7.columns
-    %h4 Monitors
+    %h4 Create A New Monitor
 
-    .fieldset
-    = simple_form_for @pingmonitor,:url=>'/monitors/' do |f|
-      = f.input :hostname
-      = f.simple_fields_for :BaseMonitor do |base_monitor|
-        / =base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ "Ping Monitor"], collection:["Ping Monitor", "File Monitor", "Web Monitor"], as: :check_boxes
-        %p
-        = base_monitor.input :name
-        = base_monitor.input :description
+    / .fieldset
+    / = simple_form_for @monitor,:url=>'/monitors/' do |f|
+    /   = f.input :hostname
+    /   = f.simple_fields_for :BaseMonitor do |base_monitor|
+    /     / =base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ "Ping Monitor"], collection:["Ping Monitor", "File Monitor", "Web Monitor"], as: :check_boxes
+    /     %p
+    /     = base_monitor.input :name
+    /     = base_monitor.input :description
 
-        %p
-        = base_monitor.input :frequency_in_seconds, priority: [ 300], collection: [ 100, 200, 300, 400, 500, 600, 700, 800, 900], as: :radio_buttons
-        %p
-      = f.error :base
-      = f.button :submit, 'Create Monitor' , :class => "button small"
-
-      / = simple_form_for @new_monitor do |f|
-      /   = f.input :name
-      /   / = f.input :Notes,  as: :text
-      /   %p
-      /     = f.button :submit
-      /     = link_to 'Cancel', :back
-
-
-/ .row
-/   .large-9.columns
-/     %h2 Monitors
-/         - form_for(@new_monitor) do |f|
-/         = f.label :name
-/         = f.text_field :name
-/         = f.label :description
-/         = f.text_field :description
-/         = f.submit
-
-/ =render :partial => "form"
-
-
+    /     %p
+    /     = base_monitor.input :frequency_in_seconds, priority: [ 300], collection: [ 100, 200, 300, 400, 500, 600, 700, 800, 900], as: :radio_buttons
+    /     %p
+    /   = f.error :base
+    /   = f.button :submit, 'Create Monitor' , :class => "button small"
+    = yield
+    = render :partial => "form"

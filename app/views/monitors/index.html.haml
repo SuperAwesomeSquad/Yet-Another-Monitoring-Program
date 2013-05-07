@@ -6,9 +6,9 @@
     |
     = link_to "New Monitor", new_monitor_path
     %p
-    - @monitors.each do |monitor|
+    - @pingmonitors.each do |pingmonitor|
       %p
-      =link_to monitor.description
+      =link_to pingmonitor.id, monitor_path(pingmonitor)
       %br
-      =monitor.inspect
+      =pingmonitor.description
 
