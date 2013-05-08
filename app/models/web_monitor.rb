@@ -1,6 +1,5 @@
 class WebMonitor < ActiveRecord::Base
-  attr_accessible :url
-  before_save :create_basemonitor_object
+  attr_accessible :url, :BaseMonitor_attributes
   has_many :WebResults
   has_one :BaseMonitor, as: :monitorable
 

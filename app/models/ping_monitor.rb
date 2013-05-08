@@ -1,6 +1,5 @@
 class PingMonitor < ActiveRecord::Base
   attr_accessible :hostname, :BaseMonitor_attributes
-  before_save :create_basemonitor_object
   has_many :PingResults
   has_one :base_monitor, as: :monitorable
 
