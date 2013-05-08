@@ -24,17 +24,17 @@ end
 
 group :development, :test do
   gem 'annotate', '>=2.5.0'
+  gem 'zeus'
 end
 
 group :test do
   gem "nyan-cat-formatter"
   gem "rspec-mocks"
   gem 'capybara'
-  gem "factory_girl_rails", "~> 4.0"
   gem 'timecop'
   gem 'simplecov', :require => false
-  gem "factory_girl_rails", "~> 4.0"
   gem 'capybara'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 gem 'rspec-rails'
