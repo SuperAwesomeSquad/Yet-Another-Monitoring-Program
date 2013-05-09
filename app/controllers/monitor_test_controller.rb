@@ -3,7 +3,7 @@ class MonitorTestController < ApplicationController
     @monitors = BaseMonitor.all
   end
   def create
-    @pingmonitor = PingMonitor.new(params[:ping_monitor])
+    @pingmonitor = PingMonitor.new(params[:pingmonitor])
     if @pingmonitor.save
       flash[:notice] = "Monitor!"
     else

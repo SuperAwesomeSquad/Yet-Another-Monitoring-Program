@@ -22,21 +22,14 @@ end
 
 def create
   @pingmonitor = PingMonitor.new(params[:pingmonitor])
-  @basemonitor = @pingmonitor.create_BaseMonitor
-#   # @pingmonitor.user = current_user
-#   # @basemonitor = @pingmonitor.build_BaseMonitor
+
+  # binding.pry
     if @pingmonitor.save
       flash[:notice] = "Monitor has been created!"
     else
       flash[:notice] = "Monitor was not saved!"
     end
     redirect_to monitors_path
-#   # @new_monitor = BaseMonitor.new(params[:id])
-#   #   if @new_monitor.save
-#   #     redirect_to @new_monitor, notice: "Successfully created monitor."
-#   #   else
-#   #     render :new
-#   #   end
 end
 
 def edit

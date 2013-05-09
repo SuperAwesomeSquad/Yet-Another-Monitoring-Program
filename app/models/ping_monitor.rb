@@ -1,7 +1,8 @@
 class PingMonitor < ActiveRecord::Base
-  attr_accessible :hostname, :BaseMonitor_attributes
+  attr_accessible :hostname
   has_many :PingResults
   has_one :BaseMonitor, as: :monitorable
+  # validates_presence_of :hostname
 
   accepts_nested_attributes_for :BaseMonitor
 
