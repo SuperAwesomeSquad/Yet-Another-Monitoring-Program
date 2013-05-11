@@ -21,7 +21,7 @@ def new
 end
 
 def create
-  @pingmonitor = PingMonitor.new(params[:pingmonitor])
+  @pingmonitor = PingMonitor.new(params[:ping_monitor])
 
   # binding.pry
     if @pingmonitor.save
