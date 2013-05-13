@@ -3,7 +3,7 @@
 
     .form
       .fieldset
-      = simple_form_for @pingmonitor,:url=>'/monitors/' do |f|
+      = simple_form_for @pingmonitor, :url=>'/monitors/' do |f|
         = f.error_notification
         .inputs
         = f.input :hostname

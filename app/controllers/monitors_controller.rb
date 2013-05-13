@@ -38,12 +38,13 @@ end
 
 def update
   @pingmonitor = BaseMonitor.find(params[:id])
-  if @pingmonitor.update_attributes(params[:pingmonitor])
-    redirect_to @pingmonitor, success: "Successfully updated monitor."
+  if @pingmonitor.update_attributes(params[:ping_monitor])
+   flash[:success]= "Successfully updated monitor."
   else
-    redirect_to @pingmonitor, success: "Monitor has not been updated."
+    flash[:alert]= "Monitor has not been updated."
     render :action => "edit"
   end
+  # redirect_to monitors_path
 end
 
 def destroy
