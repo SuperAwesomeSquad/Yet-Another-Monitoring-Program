@@ -1,11 +1,11 @@
 .row
   .large-9.columns
-    %h2 Monitors
+    %h2 #{@pingmonitor.hostname}
 
 
-    =@pingmonitor.name
-    %br
-    =@pingmonitor.description
+    / ="Monitor description: #{@pingmonitor.BaseMonitor_attributes.description}"
+    / %p
+    ="Last updated: #{@pingmonitor.updated_at}"
     %p
 
     =link_to "Edit Monitor", edit_monitor_path(@pingmonitor)
