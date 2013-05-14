@@ -4,8 +4,10 @@
     %p
     - @pingmonitors.each do |pingmonitor|
       %p
-      =link_to pingmonitor.description, monitor_path(pingmonitor)
+      =link_to pingmonitor.hostname, monitor_path(pingmonitor)
       %br
+      =pingmonitor.description
+      %p
       =pingmonitor.inspect
   .large-3.columns{ :style => "float:right"}
     %p
