@@ -3,6 +3,7 @@ class BaseMonitor < ActiveRecord::Base
   belongs_to :monitorable, polymorphic: true
   delegate :do, to: :monitorable
   belongs_to :user
+  has_many :alerts
 
   def active?
     active
