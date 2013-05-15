@@ -81,7 +81,7 @@ describe Alert do
       alert.resolution.should eq :automated
     end
 
-    it "resolves the issue with custom symbols" do
+ it "resolves the issue with custom symbols" do
       alert = Alert.new
       alert.resolve(:user)
       alert.active?.should be_false
