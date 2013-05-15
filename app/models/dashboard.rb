@@ -1,5 +1,5 @@
 class Dashboard < ActiveRecord::Base
-has_many :BaseMonitor
+has_many :base_monitors
 
 
 end

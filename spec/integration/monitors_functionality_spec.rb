@@ -29,8 +29,7 @@ end
   it "can be shown" do
     visit '/monitors'
     click_link 'All Monitors'
-    click_link '2'
-    page.current_url.should == monitor_url(monitor)
+    page.has_content?("Dashboard")
   end
 
   it "can be edited" do
@@ -38,7 +37,10 @@ end
   end
 
   it "can be deleted" do
-     pending
+     visit '/monitors'
+     click_link 'Google.com'
+     click_link 'Delete Monitor'
+     page.driver.browser.switch_to.alert.accept
   end
 
 end

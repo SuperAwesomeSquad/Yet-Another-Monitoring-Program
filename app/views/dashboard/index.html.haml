@@ -4,11 +4,10 @@
     %p
     - @pingmonitors.each do |pingmonitor|
       %p
-      %strong=link_to pingmonitor.hostname, monitor_path(pingmonitor)
+      %strong=link_to pingmonitor, monitor_path(pingmonitor)
       %br
       =pingmonitor.description
-      %p
-      =pingmonitor.inspect
+
   .large-3.columns{ :style => "float:right"}
     %p
     =link_to "New Monitor", new_monitor_path, class: "button small"
