@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :web_monitor do
-    url "http://google.com"
+    url
   end
 end

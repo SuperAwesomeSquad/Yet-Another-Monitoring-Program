@@ -13,7 +13,7 @@ development:
   encoding: utf8
   reconnect: false
   database: YAMP_development
-  pool: 5
+  pool: 50
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -27,7 +27,7 @@ test:
   encoding: utf8
   reconnect: false
   database: YAMP_test
-  pool: 5
+  pool: 50
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -37,7 +37,7 @@ production:
   encoding: utf8
   reconnect: false
   database: YAMP_production
-  pool: 5
+  pool: 50
   username: root
   password:
   socket: /tmp/mysql.sock

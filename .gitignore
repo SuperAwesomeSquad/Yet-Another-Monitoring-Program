@@ -17,3 +17,4 @@
 *.swp
 *.rdb
 *.DS_Store
+coverage
