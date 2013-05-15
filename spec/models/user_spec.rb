@@ -5,7 +5,7 @@ describe User do
     @user = FactoryGirl.create(:user)
   end
   it "Knows about its Monitors" do
-    @user.respond_to?(:BaseMonitors).should eq true
+    @user.respond_to?(:base_monitors).should eq true
   end
   it "Will convert itself to email when asked for to_s" do
     @user.to_s.should eq @user.email
