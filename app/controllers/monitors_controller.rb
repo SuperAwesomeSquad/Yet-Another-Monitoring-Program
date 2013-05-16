@@ -14,7 +14,7 @@ end
 def new
   @pingmonitor = PingMonitor.new
   @basemonitor = @pingmonitor.build_BaseMonitor
-  @basemonitor.user = current_user
+  # @basemonitor.user = current_user
   # @new_monitor = BaseMonitor.new
   # ActiveRecord::Base.transaction do
   #   BaseMonitor.save!

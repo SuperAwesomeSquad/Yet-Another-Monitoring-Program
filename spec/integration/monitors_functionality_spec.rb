@@ -4,6 +4,7 @@ describe "monitors", :type => :feature do
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as!(@user)
+    # @monitor = FactoryGirl.create(:monitor)
   end
 
   it "can be created" do
@@ -33,14 +34,29 @@ end
   end
 
   it "can be edited" do
-     pending
+    scenario "update a monitor" do
+    Factory(:monitor, :description => "Another Google monitor")
+    visit "/"
+    click_link "Google"
+    click_link "Edit Monitor"
+    fill_in "Name", :with => "My favorite Google monitor"
+    click_button "Create Monitor"
+    page.should have_content("Monitor has been updated.")
+    end
   end
 
   it "can be deleted" do
-     visit '/monitors'
-     click_link 'Google.com'
-     click_link 'Delete Monitor'
-     page.driver.browser.switch_to.alert.accept
+    # Factory(:monitor, :name => "Google")
+    visit "/"
+    click_link "Google"
+    click_link "Delete Project"
+    page.should have_content("Monitor has been deleted.")
+visit "/"
+    page.should_not have_content("Google")
+  #    visit '/monitors'
+  #    click_link 'Google.com'
+  #    click_link 'Delete Monitor'
+  #    page.driver.browser.switch_to.alert.accept
+  # end
   end
-
 end

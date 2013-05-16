@@ -1,10 +1,10 @@
 .row
   .large-9.columns
-    %h2 #{current_user}'s Dashboard
+    %h4.subhead #{current_user}'s Dashboard
     %p
     - @pingmonitors.each do |pingmonitor|
       %p
-      %strong=link_to pingmonitor, monitor_path(pingmonitor)
+      =link_to pingmonitor, monitor_path(pingmonitor)
       %br
       =pingmonitor.description
 

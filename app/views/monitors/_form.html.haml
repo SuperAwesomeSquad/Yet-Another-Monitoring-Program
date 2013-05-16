@@ -2,9 +2,8 @@
   .large-9.columns
 
     .form
-    .form
       .fieldset
-      = simple_form_for @pingmonitor, :url=>monitor_path(@pingmonitor.BaseMonitor) do |f|
+      = simple_form_for @pingmonitor, :url=>'/monitors' do |f|
         = f.input :hostname
         / = f.simple_fields_for :web_monitor do |web_monitor|
         /   = f.input :url
