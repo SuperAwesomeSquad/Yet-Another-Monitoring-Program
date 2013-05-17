@@ -8,6 +8,10 @@ root :to => 'static#welcome'
   get page, controller: 'static', action: page
 end
 
+# get '/dashboard',
+#   :to => 'dashboard#index',
+#   :as => '/dashboard'
+
 namespace :dashboard do
     get '', to: 'dashboard#index', as: '/'
 end
@@ -20,7 +24,7 @@ end
 
 resources :monitors
 
-resources :alerts, :monitor_test
+resources :alerts
 
 #polymorphic_path([test, subtest])
 

@@ -1,16 +1,20 @@
 require 'spec_helper'
 
-feature 'Dashboard' do
-	scenario "is visible to logged in user" do
-		visit '/'
-		click_link 'Log In'
-  		fill_in 'Email', with: 'user@example.com'
-  		fill_in 'Password', with: 'secret'
-  		click_button 'Login'
-		current_path.should eq dashboard_path
-	end
-	scenario "can toggle to alerts" do
-		click_link 'Alerts'
- 	 	current_path.should eq
-  end
-end
+# describe 'Dashboard', :type=>:feature do
+#   # before :each do
+#   #   @user = FactoryGirl.create(:user)
+#   #   sign_in_as!(@user)
+#   #   # @monitor = FactoryGirl.create(:monitor)
+#   # end
+
+# 	it "is visible" do
+# 		visit '/'
+# 		click_link 'Dashboard'
+# 		page.has_content?("Dashboard")
+# 	end
+
+# 	it "can toggle to alerts" do
+# 		click_link 'Alerts'
+#  	 	page.has_content?("Alert")
+#   end
+# end
