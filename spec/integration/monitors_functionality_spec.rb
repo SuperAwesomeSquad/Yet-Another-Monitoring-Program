@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "monitors", :type => :feature do
+
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as!(@user)
@@ -17,7 +18,7 @@ describe "monitors", :type => :feature do
     choose('700')
     click_button('Create Monitor')
     page.has_content?('Monitor has been created.')
-end
+  end
 
   it "cannot be created without a name" do
     visit '/'
@@ -30,11 +31,10 @@ end
   it "can be shown" do
     visit '/monitors'
     click_link 'All Monitors'
-    page.has_content?("Dashboard")
+    page.has_content?('Dashboard')
   end
 
   it "can be edited" do
-    scenario "update a monitor" do
     Factory(:monitor, :description => "Another Google monitor")
     visit "/"
     click_link "Google"
@@ -42,7 +42,6 @@ end
     fill_in "Name", :with => "My favorite Google monitor"
     click_button "Create Monitor"
     page.should have_content("Monitor has been updated.")
-    end
   end
 
   it "can be deleted" do
@@ -51,7 +50,7 @@ end
     click_link "Google"
     click_link "Delete Project"
     page.should have_content("Monitor has been deleted.")
-visit "/"
+    visit "/"
     page.should_not have_content("Google")
   #    visit '/monitors'
   #    click_link 'Google.com'
@@ -59,4 +58,5 @@ visit "/"
   #    page.driver.browser.switch_to.alert.accept
   # end
   end
+
 end

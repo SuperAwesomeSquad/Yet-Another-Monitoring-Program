@@ -1,5 +1,5 @@
 class BaseMonitor < ActiveRecord::Base
-  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds
+  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds, :monitorable_type
   belongs_to :monitorable, polymorphic: true
   delegate :do, to: :monitorable
   belongs_to :user

@@ -2,11 +2,11 @@
   .large-9.columns
     %h4.subhead #{current_user}'s Dashboard
     %p
-    - @pingmonitors.each do |pingmonitor|
+    - @monitors.each do |monitor|
       %p
-      =link_to pingmonitor, monitor_path(pingmonitor)
+      =link_to monitor, monitor_path(monitor)
       %br
-      =pingmonitor.description
+      =monitor.description
 
   .large-3.columns{ :style => "float:right"}
     %p

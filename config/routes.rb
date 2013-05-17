@@ -12,15 +12,15 @@ end
 #   :to => 'dashboard#index',
 #   :as => '/dashboard'
 
-namespace :dashboard do
-    get '', to: 'dashboard#index', as: '/'
-end
+# namespace :dashboard do
+#     get '', to: 'dashboard#index', as: '/'
+# end
 
 # %w[base_monitor ping_monitor web_monitor file_monitors].each do |page|
 #   get page, controller: 'monitors_controller', action: page
 # end
 
-# match "dashboard" => "monitors#show"
+match "dashboard" => "monitors#index"
 
 resources :monitors
 
