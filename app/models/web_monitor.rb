@@ -1,9 +1,9 @@
 class WebMonitor < ActiveRecord::Base
   attr_accessible :url, :BaseMonitor_attributes
   has_many :WebResults
-  has_one :base_monitors, as: :monitorable
+  has_one :BaseMonitor, as: :monitorable
 
-  accepts_nested_attributes_for :base_monitors
+  # accepts_nested_attributes_for :BaseMonitor
 
   include MonitorTemplate
 

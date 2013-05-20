@@ -12,16 +12,16 @@
           %p
           = base_monitor.input :frequency_in_seconds, priority: [ 300], collection: [ 100, 200, 300, 400, 500, 600, 700, 800, 900], as: :radio_buttons
           %p
-          = base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ "Ping Monitor"], collection:[[:ping_monitor, "Ping Monitor"][:file_monitor, "File Monitor"],[:web_monitor, "Web Monitor"], as: :radio_buttons
-          %p
-        = f.simple_fields_for :ping_monitor do |ping_monitor|
-          = f.input :hostname
-        / = f.simple_fields_for :web_monitor do |web_monitor|
+          / = base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ [:ping_monitor, "Ping Monitor"], collection:[[:ping_monitor, "Ping Monitor"][:file_monitor, "File Monitor"],[:web_monitor, "Web Monitor"], as: :radio_buttons
+          / = base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: ["Ping Monitor"], collection:[[:PingMonitor,"Ping Monitor"],"File Monitor","Web Monitor"], as: :check_boxes
+        / = f.simple_fields_for :PingMonitor do |ping_monitor|
+        /   = f.input :hostname
+        / = f.simple_fields_for :WebMonitor do |web_monitor|
         /   = f.input :url
-        / = f.simple_fields_for :file_monitor do |file_monitor|
-        /   = f.input :
+        / = f.simple_fields_for :FileMonitor do |file_monitor|
+        /   = f.input :thing
         = f.error :base
-        = f.button :submit, 'Create Monitor' , :class => "button small"
+        = f.button :submit, 'Create Monitor', :class => "button small"
       / .fieldset
       / = simple_form_for @pingmonitor, :url=>'/monitors/' do |f|
       /   = f.error_notification
