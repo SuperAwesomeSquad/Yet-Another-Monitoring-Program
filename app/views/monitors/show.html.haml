@@ -1,8 +1,8 @@
 .row
   .large-9.columns
-    %h2 #{@monitor.name}
+    %h2 #{@monitor.BaseMonitor.name}
 
-
+    .row
     ="Description: #{@monitor.description}"
     %br
     %i="Last updated: #{@monitor.updated_at}"

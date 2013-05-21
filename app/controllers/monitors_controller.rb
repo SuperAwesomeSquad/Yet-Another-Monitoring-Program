@@ -13,7 +13,7 @@ end
 def new
   @monitor = BaseMonitor.new
   # @basemonitor = @monitor.build_BaseMonitor
-  @monitor.user_id = current_user.id
+  # @monitor.user_id = current_user.id
 
   # @basemonitor.user = current_user
   # @new_monitor = BaseMonitor.new

@@ -4,7 +4,7 @@ class PingMonitor < ActiveRecord::Base
   has_one :BaseMonitor, as: :monitorable
   # validates_presence_of :hostname
 
-  # accepts_nested_attributes_for :BaseMonitor
+  accepts_nested_attributes_for :BaseMonitor
 
 
   include MonitorTemplate
