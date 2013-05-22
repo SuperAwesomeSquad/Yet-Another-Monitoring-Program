@@ -2,29 +2,46 @@ YetAnotherMonitoringProgram::Application.routes.draw do
 require 'sidekiq/web'
 
 devise_for :users
+root :to => 'static#welcome'
 
 %w[about contact license].each do |page|
   get page, controller: 'static', action: page
 end
 
-namespace :dashboard do
-    get '', to: 'dashboard#index', as: '/'
-    resources :monitors
-end
+# get '/dashboard',
+#   :to => 'dashboard#index',
+#   :as => '/dashboard'
+
+# namespace :dashboard do
+#     get '', to: 'dashboard#index', as: '/'
+# end
+
+# %w[base_monitor ping_monitor web_monitor file_monitors].each do |page|
+#   get page, controller: 'monitors_controller', action: page
+# end
+
+match "dashboard" => "monitors#index"
+
+resources :monitors
 
 resources :alerts
+
+#polymorphic_path([test, subtest])
 
 get '/lsp',
   :to => 'lumpys#index',
   :as => 'lsp'
 
 
-# root :to => 'dashboard#index'
+# resources :monitors do
+#     resources :alerts
+# end
+
 # authenticated :user do
 #   root :to => "dashboard#index"
 # end
 
-root :to => 'static#welcome'
+
 
 ActiveAdmin.routes(self)
 

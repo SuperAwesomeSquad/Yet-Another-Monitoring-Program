@@ -30,8 +30,8 @@ $body-font-weight: 300;
 // We use these as default colors throughout
 // $primary-color: #2E8B57;
 // $secondary-color: #e9e9e9;
-// $alert-color: #c60f13;
-// $success-color: #5da423;
+$alert-color: #c60f13;
+$success-color: #5da423;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -241,7 +241,7 @@ $blockquote-display:inline;
 
 // We use these to build padding for buttons.
 // $button-med: emCalc(12px);
-// $button-tny: emCalc(7px);
+$button-tny: emCalc(7px);
 // $button-sml: emCalc(9px);
 // $button-lrg: emCalc(16px);
 
@@ -254,7 +254,7 @@ $blockquote-display:inline;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16px);
-// $button-font-tny: emCalc(11px);
+$button-font-tny: emCalc(10px);
 // $button-font-sml: emCalc(13px);
 // $button-font-lrg: emCalc(20px);
 // $button-font-weight: bold;

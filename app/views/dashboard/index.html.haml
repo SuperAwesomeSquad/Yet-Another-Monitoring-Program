@@ -1,4 +1,13 @@
-%h1 Dashboard#index
-%p I'm in in app/views/dashboard/index.html.haml
- / %p
- / = link_to "New Monitor", new_monitor_path
+.row
+  .large-9.columns
+    %h4.subhead #{current_user}'s Dashboard
+    %p
+    - @monitors.each do |monitor|
+      %p
+      =link_to monitor, monitor_path(monitor)
+      %br
+      =monitor.description
+
+  .large-3.columns{ :style => "float:right"}
+    %p
+    =link_to "New Monitor", new_monitor_path, class: "button small"

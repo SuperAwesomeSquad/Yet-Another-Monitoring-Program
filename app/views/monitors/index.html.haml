@@ -1,3 +1,14 @@
-%strong= current_user.email
-      = link_to 'Edit profile', edit_user_registration_path
-  = link_to "New Monitor", dashboard_monitors_path
+.row
+  .large-9.columns
+    %h4.subheader #{current_user}'s Monitors
+
+    = link_to "All Monitors", monitors_path
+    |
+    = link_to "New Monitor", new_monitor_path
+    %p
+    - @monitors.each do |monitor|
+      %p
+      =link_to monitor.name, monitor_path(monitor)
+      %br
+      =monitor.description
+

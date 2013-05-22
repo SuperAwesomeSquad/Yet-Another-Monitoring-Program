@@ -1,4 +1,5 @@
 class FileMonitor < ActiveRecord::Base
+  attr_accessible :BaseMonitor_attributes
   before_save :create_basemonitor_object
   has_one :BaseMonitor, as: :monitorable
 
