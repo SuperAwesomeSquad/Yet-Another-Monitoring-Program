@@ -3,7 +3,7 @@ class WebWorker
   include WorkerTemplate
   sidekiq_options :retry => false
 
-  MonitorResult = Struct.new(:successful, :return_object, :status_code, :exception)
+  MonitorResult = Struct.new(:successful,:status_code, :exception)
 
   def perform(monitor_id)
     @monitor = find_monitor(monitor_id)
@@ -19,14 +19,14 @@ class WebWorker
 
     begin
       res = Net::HTTP.get_response(uri)
-      if res.code != 200
-        result = MonitorResult(successful: false, status_code: res.code)
+      if res.code != '200'
+        result = MonitorResult.new(false, res.code, false)
       else
-        result = MonitorResult(successful: true, status_code: res.code)
+        result = MonitorResult.new(true, res.code, false)
       end
     rescue => e
       exception = e.message
-      result = MonitorResult(successful: false, exception: true)
+      result = MonitorResult.new(false, true, true)
     end
 
     create_result(result)
@@ -35,19 +35,23 @@ class WebWorker
   end
 
   def create_result(result)
+puts result.inspect
     if result.exception
+puts "I think I excepted"
       @p = WebResult.new(
         successful: false,
-        exception: result.exception
+        status_code: result.status_code
       )
       # create_alert
-    elsif result.status_code != 200
+    elsif result.status_code != '200'
+puts "I think I didn't have 200"
       @p = WebResult.new(
         successful: false,
         status_code: result.status_code,
       )
       # create_alert
     else
+puts "I think I was good"
       @p = WebResult.new(
         successful: true,
         status_code: 200
