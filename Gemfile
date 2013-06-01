@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'mysql2'
-
+#gem 'mysql2'
+gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -47,3 +47,4 @@ gem 'activeadmin'
 gem 'whenever'
 gem 'simple_form'
 gem 'haml-rails'
+gem 'therubyracer'

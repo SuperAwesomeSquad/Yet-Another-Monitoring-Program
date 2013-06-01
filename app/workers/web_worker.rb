@@ -22,7 +22,7 @@ class WebWorker
       if res.code != 200
         result = MonitorResult(successful: false, status_code: res.code)
       else
-        result = MonitorResult(successful: false, status_code: res.code)
+        result = MonitorResult(successful: true, status_code: res.code)
       end
     rescue => e
       exception = e.message
