@@ -11,10 +11,9 @@ def show
 end
 
 def new
-  @monitor = BaseMonitor.new
-  # @basemonitor = @monitor.build_BaseMonitor
-  # @monitor.user_id = current_user.id
-
+  @monitor = PingMonitor.new
+  @basemonitor = @monitor.build_BaseMonitor
+  @basemonitor.user_id = current_user.id
   # @basemonitor.user = current_user
   # @new_monitor = BaseMonitor.new
   # ActiveRecord::Base.transaction do
@@ -23,7 +22,7 @@ def new
 end
 
 def create
-  @monitor = BaseMonitor.new(params[:BaseMonitor])
+  @monitor = PingMonitor.new(params[:ping_monitor])
     if @monitor.save
       flash[:notice] = "Monitor has been created!"
       render :show
@@ -39,7 +38,7 @@ end
 
 def update
   @monitor = BaseMonitor.find(params[:id]).monitorable
-  if @monitor.update_attributes(params[:monitorable])
+  if @monitor.update_attributes(params[:ping_monitor])
     flash[:success]= "Successfully updated monitor."
     render :action => "show", :id=>@monitor.BaseMonitor
   else
