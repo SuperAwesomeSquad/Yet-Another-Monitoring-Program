@@ -13,16 +13,12 @@ end
 def new
   @monitor = PingMonitor.new
   @basemonitor = @monitor.build_BaseMonitor
-  @basemonitor.user_id = current_user.id
-  # @basemonitor.user = current_user
-  # @new_monitor = BaseMonitor.new
-  # ActiveRecord::Base.transaction do
-  #   BaseMonitor.save!
-  # end
 end
 
 def create
   @monitor = PingMonitor.new(params[:ping_monitor])
+  @monitor.BaseMonitor.user = current_user
+  binding.pry
     if @monitor.save
       flash[:notice] = "Monitor has been created!"
       render :show
@@ -55,3 +51,8 @@ def destroy
 end
 
 end
+
+##submit button to the same controller action
+##create a conditional (the monitorable type) into the post
+##def create_monitor
+##if
