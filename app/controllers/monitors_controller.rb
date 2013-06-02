@@ -7,12 +7,11 @@ def index
 end
 
 def show
-  @monitor = BaseMonitor.find(params[:id])
+  @monitor = BaseMonitor.find(params[:id]).monitorable
 end
 
 def new
   @monitor = PingMonitor.new
-  # @monitor = WebMonitor.new
   @basemonitor = @monitor.build_BaseMonitor
   @basemonitor.user_id = current_user.id
   # @basemonitor.user = current_user
