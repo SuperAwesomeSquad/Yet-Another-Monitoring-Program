@@ -11,7 +11,7 @@ class StaticController < ApplicationController
   def dashboard
   end
 
-  def alerts
-    @alerts = nil
-  end
+  # def alerts
+  #   @alerts = nil
+  # end
 end

@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  has_many :BaseMonitors
+  has_one :dashboard
+
 
   def to_s
   	self.email

@@ -1,0 +1,7 @@
+%h3 Create new monitor
+= simple_form_for @pingmonitor, :url=>'/monitor_test/' do |f|
+  = f.input :hostname
+  = f.simple_fields_for :BaseMonitor do |base_monitor|
+    = base_monitor.input :frequency_in_seconds
+  = f.button :submit
+

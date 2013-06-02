@@ -46,3 +46,4 @@ gem 'sinatra', :require => false
 gem 'devise'
 gem 'activeadmin'
 gem 'whenever'
+gem 'simple_form'

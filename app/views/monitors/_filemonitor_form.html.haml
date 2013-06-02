@@ -1,0 +1,14 @@
+.row
+  .large-9.columns
+    .form
+      .fieldset
+        .inputs
+        = simple_form_for :file_monitor do |file_monitor|
+          =file_monitor.input :test
+          / = base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ [:ping_monitor, "Ping Monitor"], collection:[[:ping_monitor, "Ping Monitor"][:file_monitor, "File Monitor"],[:web_monitor, "Web Monitor"], as: :radio_buttons
+        / = f.simple_fields_for :PingMonitor do |ping_monitor|
+        /   = f.input :hostname
+        / = f.simple_fields_for :WebMonitor do |web_monitor|
+        /   = f.input :url
+        / = f.simple_fields_for :FileMonitor do |file_monitor|
+        /   = f.input :thing
