@@ -138,6 +138,7 @@ GEM
     nyan-cat-formatter (0.5.0)
       rspec (>= 2.13)
     orm_adapter (0.4.0)
+    pg (0.15.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -278,6 +279,7 @@ DEPENDENCIES
   mysql2
   net-ping
   nyan-cat-formatter
+  pg
   pry-rails
   rails (= 3.2.13)
   rspec-mocks
