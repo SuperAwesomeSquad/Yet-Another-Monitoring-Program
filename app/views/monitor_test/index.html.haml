@@ -1,0 +1,10 @@
+%a{href: monitor_test_index_path}
+  All Monitors
+|
+%a{href: new_monitor_test_path}
+  New Monitor
+- @monitors.each do |monitor|
+  %p
+    =monitor
+    %br
+    =monitor.inspect

@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
 before_filter :authenticate_user!
 
 def index
-  @pingmonitors = BaseMonitor.all
+  @monitors = BaseMonitor.all
 end
 
 def show

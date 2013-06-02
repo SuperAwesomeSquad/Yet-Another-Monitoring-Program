@@ -3,7 +3,7 @@
 
     .form
       .fieldset
-      = simple_form_for @pingmonitor, :url=>monitor_path(@pingmonitor.BaseMonitor) do |f|
+      = simple_form_for @monitor, :url=>monitor_path(@monitor.BaseMonitor) do |f|
         = f.input :hostname
         / = f.simple_fields_for :web_monitor do |web_monitor|
         /   = f.input :url
