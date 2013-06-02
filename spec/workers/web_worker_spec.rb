@@ -38,14 +38,14 @@ describe WebWorker do
    it "Will return a built WebResult success on HTTP 200" do
     monitor = double("monitor")
     monitor.stub(:successful).and_return(true)
-    monitor.stub(:status_code).and_return(200)
+    monitor.stub(:status_code).and_return('200')
     monitor.stub(:exception).and_return(nil)
     @ww.create_result(monitor).successful.should be_true
   end
   it "Will return a built WebResult fail on HTTP 304" do
     monitor = double("monitor")
     monitor.stub(:successful).and_return(false)
-    monitor.stub(:status_code).and_return(304)
+    monitor.stub(:status_code).and_return('304')
     monitor.stub(:exception).and_return(nil)
     @ww.create_result(monitor).successful.should be_false
   end

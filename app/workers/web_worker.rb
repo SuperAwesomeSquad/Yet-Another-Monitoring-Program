@@ -35,23 +35,19 @@ class WebWorker
   end
 
   def create_result(result)
-puts result.inspect
     if result.exception
-puts "I think I excepted"
       @p = WebResult.new(
         successful: false,
         status_code: result.status_code
       )
       # create_alert
     elsif result.status_code != '200'
-puts "I think I didn't have 200"
       @p = WebResult.new(
         successful: false,
         status_code: result.status_code,
       )
       # create_alert
     else
-puts "I think I was good"
       @p = WebResult.new(
         successful: true,
         status_code: 200

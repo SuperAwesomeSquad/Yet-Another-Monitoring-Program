@@ -33,7 +33,6 @@ class PingWorker
         successful: result.successful,
         duration: result.duration
       )
-      # create_alert
     else
       @p = PingResult.new(
         successful: result.successful,
@@ -43,6 +42,13 @@ class PingWorker
 
   def save_result(result)
     result.save
+    @monitor.PingResults << result
+    if result.successful
+      @monitor.BaseMonitor.worker_result(:all_clear)
+    else
+      @monitor.BaseMonitor.worker_result(:alert)
+    end
+    result
   end
 
   def find_monitor(monitor_id)

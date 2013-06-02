@@ -142,6 +142,11 @@ describe Alert do
         @bm.all_alerts.size.should eq 6
       end
     end
+
+    context "#alert" do
+      it "Will create an active alert if one doesn't already exist"
+      it "Will not create an active alert if one already exists"
+    end
   end
 
   context "User" do
