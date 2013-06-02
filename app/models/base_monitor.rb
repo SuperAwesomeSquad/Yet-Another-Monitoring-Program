@@ -44,7 +44,7 @@ class BaseMonitor < ActiveRecord::Base
   def alerting?
     alert = active_alert
 
-    alert ? alert : false
+    alert ? true : false
   end
 
   def active_alert
@@ -59,6 +59,32 @@ class BaseMonitor < ActiveRecord::Base
 
   def all_alerts
     alerts.all
+  end
+
+  def worker_result(result)
+    if result == :alert
+      if alerting?
+        true # Do nothing
+      else
+        create_alert
+      end
+    elsif result == :all_clear
+      if alerting?
+        resolve_alert
+      else
+        true # Do nothing
+      end
+    else
+      raise "I don't know about this result: #{result}"
+    end
+  end
+
+  def create_alert
+    alerts << Alert.create!
+  end
+
+  def resolve_alert
+    active_alert.resolve
   end
 
 end
