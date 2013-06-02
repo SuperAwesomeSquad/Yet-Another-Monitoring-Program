@@ -1,0 +1,43 @@
+monitor1:
+  id: 1
+  name: Rails
+  description: An awesome rails monitor
+  hostname: www.rails.org
+
+monitor2:
+  id: 2
+  name: Google
+  description: My Goog monitor
+  hostname: www.google.com
+
+monitor3:
+  id: 3
+  name: Bing
+  description: A Bing monitor
+  hostname: www.bing.com
+
+monitor4:
+  id: 4
+  name: CNN
+  description: A CNN monitor
+  hostname: www.cnn.com
+
+monitor5:
+  id: 5
+  name: NYT
+  description: My New York Times monitor
+  hostname: www.nytimes.com
+
+monitor6:
+  id: 6
+  name: Ask Jeeves
+  description: An Ask Jeeves monitor
+  hostname: www.askjeeves.com
+
+monitor7:
+  id: 7
+  name: Nikky Ipsum
+  description: A Nikky Ipsum monitor
+  hostname: ipsum.nikky.net
+
+
