@@ -12,9 +12,9 @@ end
 #   :to => 'dashboard#index',
 #   :as => '/dashboard'
 
-# namespace :dashboard do
-#     get '', to: 'dashboard#index', as: '/'
-# end
+namespace :dashboard do
+    get '', to: 'dashboard#index', as: '/'
+end
 
 # match "dashboard" => "monitors#show"
 
