@@ -39,4 +39,34 @@ describe BaseMonitor do
     @bm.monitorable.should be_true
   end
 
+  context "#worker_result" do
+    context "when basemonitor is alerting" do
+      before do
+        @bm.alerts << Alert.new
+      end
+      it "it will retain alert if worker is alerting" do
+        @bm.alerting?.should be_true
+        @bm.worker_result(:alert)
+        @bm.alerting?.should be_true
+      end
+      it "it will resolve alert if worker is not alerting" do
+        @bm.alerting?.should be_true
+        @bm.worker_result(:all_clear)
+        @bm.alerting?.should be_false
+        @bm.alerts.last.resolution.should eq "automated"
+      end
+    end
+    context "when basemonitor is not alerting" do
+      it "it will create an alert if worker is alerting" do
+        @bm.alerting?.should be_false
+        @bm.worker_result(:alert)
+        @bm.alerting?.should be_true
+      end
+      it "it will retain non-alert if worker is not alerting" do
+        @bm.alerting?.should be_false
+        @bm.worker_result(:all_clear)
+        @bm.alerting?.should be_false
+      end
+    end
+  end
 end

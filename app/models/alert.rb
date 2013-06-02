@@ -18,6 +18,7 @@ class Alert < ActiveRecord::Base
   def resolve(method=:automated)
     update_attribute(:resolution, method)
     update_attribute(:active, false)
+    update_attribute(:alert_end, Time.zone.now)
   end
 
 end
