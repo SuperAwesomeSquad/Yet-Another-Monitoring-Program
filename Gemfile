@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -10,7 +9,6 @@ group :assets do
   gem 'zurb-foundation', '~> 4.0.0'
   gem 'jquery-rails'
 end
-
 
 group :development do
   gem 'better_errors'
@@ -23,6 +21,11 @@ end
 group :development, :test do
   gem 'annotate', '>=2.5.0'
   gem 'zeus'
+  gem 'mysql2'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :test do

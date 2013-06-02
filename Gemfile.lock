@@ -131,6 +131,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.22)
     multi_json (1.7.2)
+    mysql2 (0.3.11)
     net-ping (1.6.0)
       ffi (>= 1.0.0)
     nokogiri (1.5.9)
@@ -275,6 +276,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   haml-rails
   jquery-rails
+  mysql2
   net-ping
   nyan-cat-formatter
   pg
