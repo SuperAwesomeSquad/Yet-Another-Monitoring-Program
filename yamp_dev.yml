@@ -1,0 +1,6 @@
+---
+  environment: development
+  port: 6660
+  tag: yamp
+  timeout: 10
+

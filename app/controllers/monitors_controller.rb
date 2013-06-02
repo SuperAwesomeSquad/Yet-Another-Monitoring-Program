@@ -25,10 +25,11 @@ def create
   @monitor = PingMonitor.new(params[:ping_monitor])
     if @monitor.save
       flash[:notice] = "Monitor has been created!"
+      render :show
     else
       flash[:notice] = "Monitor was not saved!"
+      render :new
     end
-    redirect_to monitors_path
 end
 
 def edit

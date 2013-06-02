@@ -2,16 +2,23 @@ require 'spec_helper'
 
 describe MonitorsController do
   describe "GET #index" do
-    it "populates an array of monitors"
-    it "renders the :index view"
+    it "assigns @monitor" do
+      monitor = PingMonitor.create
+      get :index
+      assigns(:monitor).should eq([monitor])
+    end
+
+    it "renders the index template" do
+      get :index
+      response.should render_template("index")
+    end
   end
 
   describe "GET #show" do
-    it "renders the :show template"
-  end
-
-  describe "GET #new" do
-    it "renders the :new template"
+    it "renders the :show template" do
+      get :show
+      response.should render_template("show")
+    end
   end
 
   describe "POST #create" do
@@ -25,4 +32,6 @@ describe MonitorsController do
       it "re-renders the :new template"
     end
   end
+
 end
+

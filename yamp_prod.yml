@@ -1,0 +1,8 @@
+---
+  environment: production
+  port: 6660
+  servers: 4
+  tag: yamp
+  timeout: 10
+  onebyone: true
+  daemonize: true

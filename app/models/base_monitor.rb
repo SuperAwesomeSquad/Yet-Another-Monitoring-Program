@@ -1,10 +1,9 @@
 class BaseMonitor < ActiveRecord::Base
-  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds
+  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds, :monitorable_type
   belongs_to :monitorable, polymorphic: true
   delegate :do, to: :monitorable
   belongs_to :user
-  # validates_presence_of :name
-
+  has_many :alerts
 
   def active?
     active
@@ -40,6 +39,26 @@ class BaseMonitor < ActiveRecord::Base
 
   def pretty_class(klass=monitorable.class)
     klass.to_s.titleize
+  end
+
+  def alerting?
+    alert = active_alert
+
+    alert ? alert : false
+  end
+
+  def active_alert
+    active_alert = alerts.where(active:true)
+
+    active_alert.empty? ? false : active_alert.first
+  end
+
+  def inactive_alerts
+    alerts.where(active:false)
+  end
+
+  def all_alerts
+    alerts.all
   end
 
 end

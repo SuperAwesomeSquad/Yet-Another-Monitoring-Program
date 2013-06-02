@@ -1,8 +1,9 @@
 class FileMonitor < ActiveRecord::Base
+  attr_accessible :BaseMonitor_attributes
   before_save :create_basemonitor_object
-  has_many :base_monitors, as: :monitorable
+  has_one :BaseMonitor, as: :monitorable
 
-  accepts_nested_attributes_for :base_monitors
+  accepts_nested_attributes_for :BaseMonitor
 
   include MonitorTemplate
 
