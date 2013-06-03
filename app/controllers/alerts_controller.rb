@@ -2,7 +2,7 @@ class AlertsController < ApplicationController
 before_filter :authenticate_user!
 
 def index
-  @alerts = current_user.get_active_alerts
+  @alerts = current_user.get_alerts(:active)
 end
 
 def show
@@ -10,7 +10,7 @@ def show
   if alert.user != current_user || alert.nil?
   	flash[:error] = "You do not have permission to view this alert"
   	redirect_to admin_dashboard_path
-  else 
+  else
   	@alert = alert
   end
 end
