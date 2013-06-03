@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
       get_all_alerts
     end
   end
-
+  private
   def get_inactive_alerts
      user_alerts = alerts.where(active: false)
     !user_alerts.empty? ? user_alerts : false
