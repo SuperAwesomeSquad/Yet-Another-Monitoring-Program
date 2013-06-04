@@ -36,15 +36,12 @@ describe AlertsController do
     end
 
     describe "GET #show" do
-        it "shows an alert if a user is authorized to see it"
+        it "returns an alert if a user is authorized to see it" do
+            sign_in @user_with_alerts
+            get :show , id: @user_with_alerts.alerts.last.id
+            assigns(:alert).should eq @user_with_alerts.last
+        end
         it "redirects a non-authorised user to dashboard home"
         it "redirects a user requesting a non-exist user to dashboard home"
-        it "allows a user to resolve alert"
-        it "shows a user alert monitor"
-        it "shows a user alert duration"
-        it "shows a user alert start time"
-        it "shows a user alert end time if alert is resolved"
-        it "shows an alert is active"
-        it "shows an alert is inactive"
     end
 end

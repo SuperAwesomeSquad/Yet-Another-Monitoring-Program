@@ -38,6 +38,7 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
+gem 'capistrano'
 gem 'rspec-rails'
 gem 'thin'
 gem 'sidekiq'
@@ -50,3 +51,4 @@ gem 'whenever'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'therubyracer'
+gem 'rvm-capistrano'
