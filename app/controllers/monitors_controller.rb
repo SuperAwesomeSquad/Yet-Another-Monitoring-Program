@@ -3,7 +3,6 @@ before_filter :authenticate_user!
 
 def index
   @monitors = BaseMonitor.all
-   # @new_monitor = BaseMonitor.order("name")
 end
 
 def show
@@ -18,7 +17,6 @@ end
 def create
   @monitor = PingMonitor.new(params[:ping_monitor])
   @monitor.BaseMonitor.user = current_user
-  binding.pry
     if @monitor.save
       flash[:notice] = "Monitor has been created!"
       render :show
@@ -41,7 +39,6 @@ def update
     flash[:alert]= "Monitor has not been updated."
     render :action => "edit"
   end
-  # redirect_to monitors_path
 end
 
 def destroy

@@ -4,6 +4,7 @@ class BaseMonitor < ActiveRecord::Base
   delegate :do, to: :monitorable
   belongs_to :user
   has_many :alerts
+  # validates_presence_of :name
 
   def active?
     active

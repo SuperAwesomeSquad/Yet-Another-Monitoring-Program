@@ -24,20 +24,23 @@ describe MonitorsController do
   end
 
   describe "POST #create" do
+    before do
+      sign_in @user
+    end
     context "with valid attributes" do
       it "saves the monitor in the database" do
-        sign_in @user
         @monitor = PingMonitor.new(:hostname=>'Google.com')
         @monitor
       end
-      it "redirects to the monitor index page"
     end
 
     context "with invalid attributes" do
-      it "does not save the monitor in the database"
-      it "re-renders the :new template"
+      it "does not save the monitor in the database" do
+        @monitor = PingMonitor.new(:hostname=>' ')
+        @monitor
+        response.should render_template("new")
+      end
     end
   end
-
 end
 
