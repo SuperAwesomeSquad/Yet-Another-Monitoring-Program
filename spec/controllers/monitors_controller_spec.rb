@@ -25,7 +25,11 @@ describe MonitorsController do
 
   describe "POST #create" do
     context "with valid attributes" do
-      it "saves the monitor in the database"
+      it "saves the monitor in the database" do
+        sign_in @user
+        @monitor = PingMonitor.new(:hostname=>'Google.com')
+        @monitor
+      end
       it "redirects to the monitor index page"
     end
 

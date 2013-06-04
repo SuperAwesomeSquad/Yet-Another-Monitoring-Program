@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Ping Monitor Integration Spec" do
   before do
     @user = FactoryGirl.create(:user)
-    @pm = PingMonitor.new(hostname:'nykida.net')
+    @pm = PingMonitor.new(hostname:'127.0.0.1')
     @pm.build_BaseMonitor(name: 'nykida.net', description: 'test monitor')
     @pm.save
     @bm = @pm.BaseMonitor
@@ -29,7 +29,7 @@ feature "Ping Monitor Integration Spec" do
     PingWorker.drain
     PingResult.all.size.should eq pr +1
     PingResult.last.ping_monitor_id.should eq @pm.id
-    @bm.alerting?.should be_false
+    PingResult.last.successful.should be_true
   end
 
   scenario "Ping monitor is unsuccessful and creates new alert" do
