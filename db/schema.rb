@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130513225521) do
   end
 
   add_index "base_monitors", ["frequency_in_seconds"], :name => "index_base_monitors_on_frequency_in_seconds"
+  add_index "base_monitors", ["monitorable_id", "monitorable_type"], :name => "index_base_monitors_on_monitorable_id_and_monitorable_type"
 
   create_table "file_monitors", :force => true do |t|
     t.datetime "created_at", :null => false
