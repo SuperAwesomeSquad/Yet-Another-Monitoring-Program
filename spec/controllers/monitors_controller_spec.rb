@@ -1,29 +1,35 @@
 require 'spec_helper'
 
 describe MonitorsController do
-  describe "GET #index" do
-    it "assigns @monitor" do
-      monitor = PingMonitor.create
-      get :index
-      assigns(:monitor).should eq([monitor])
-    end
+  before do
+    @user = FactoryGirl.create(:user)
+    @monitor1 = FactoryGirl.create(:base_monitor)
+    @monitor2 = FactoryGirl.create(:base_monitor)
+  end
 
-    it "renders the index template" do
+  describe "GET #index" do
+    it "displays a monitor" do
+      sign_in @user
       get :index
-      response.should render_template("index")
+      assigns(:monitors).count.should eq 2
     end
   end
 
   describe "GET #show" do
     it "renders the :show template" do
-      get :show
+      sign_in @user
+      get :show, :id => @monitor1.id
       response.should render_template("show")
     end
   end
 
   describe "POST #create" do
     context "with valid attributes" do
-      it "saves the monitor in the database"
+      it "saves the monitor in the database" do
+        sign_in @user
+        @monitor = PingMonitor.new(:hostname=>'Google.com')
+        @monitor
+      end
       it "redirects to the monitor index page"
     end
 
