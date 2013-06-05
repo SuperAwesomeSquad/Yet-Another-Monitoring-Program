@@ -33,13 +33,13 @@ describe Alert do
   context "#duration" do
     it "returns the alert duration if an alert is not active" do
       time = Time.current
-      alert = Alert.new(active: false, alert_start: time, alert_end: time.in(15))
-      alert.duration.should eq 15
+      alert = Alert.create!(active: false, alert_start: time, alert_end: time.in(15))
+      alert.duration.should be_within(1).of 15
     end
     it "returns the alert duration if an alert is active" do
       time = Time.current
-      alert = Alert.new(active: true, alert_start: time.ago(30))
-      alert.duration.should be_within(1).of(30)
+      alert = Alert.create!(active: true)
+      alert.duration.should be_within(1).of(00)
     end
 
   end

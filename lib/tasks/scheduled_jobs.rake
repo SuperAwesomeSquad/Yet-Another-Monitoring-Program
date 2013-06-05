@@ -7,6 +7,7 @@ namespace :yamp do
 
   task :run_all => :environment do
     select_all_tasks.each do |monitor|
+      next if monitor.monitorable.nil?
       monitor.do
     end
   end

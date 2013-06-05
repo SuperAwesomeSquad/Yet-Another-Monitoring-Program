@@ -1,10 +1,23 @@
 .row
   .large-9.columns
-    %h4.subheader #{current_user}'s dashboard
+    %h4 dashboard
     %p
     - @monitors.each do |monitor|
       %p
-      =link_to monitor.name, monitor_path(monitor)
+      - if monitor.alerting?
+        =link_to monitor.name, monitor_path(monitor)
+        is
+        %span.alert-text
+          alerting
+      - elsif monitor.initial_check?
+        =link_to monitor.name, monitor_path(monitor)
+        was just added and will be checked soon!
+      - else
+        =link_to monitor.name, monitor_path(monitor)
+        is
+        %span.all-clear
+          nominal
+
       %br
       =monitor.description
 
