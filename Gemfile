@@ -38,6 +38,10 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
+group :production do
+  gem 'therubyracer'
+end
+
 gem 'capistrano'
 gem 'rspec-rails'
 gem 'thin'
