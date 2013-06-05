@@ -1,11 +1,31 @@
 .row
   .large-9.columns
-    %h2.subhead #{@monitor.BaseMonitor.name}
+    %h2.subhead
+      #{@monitor.BaseMonitor.name}
+    %p
+      #{@monitor.BaseMonitor.description}
+      is checking the hostname
+      #{@monitor.hostname}
+    - if @monitor.BaseMonitor.alerting?
+      %p
+        %span.alert-text
+          This monitor has been alerting for #{distance_of_time_in_words(Time.now - @alert_duration.seconds, Time.now)}
 
+    %p
+      - if @monitor.BaseMonitor.initial_check
+        %i Monitor is currently awaiting initial check
+      - elsif !@monitor.BaseMonitor.alerting?
+        Monitor is reporting all swell!
 
-    ="Description: #{@monitor.BaseMonitor.description}"
-    %br
-    %i="Last updated: #{@monitor.BaseMonitor.updated_at}"
+    %h4 Detailed Information
+    - if !@monitor.BaseMonitor.initial_check
+      %p This monitor has been checked a total of #{@monitor.PingResults.size} times, the most recent at #{@last_checked.strftime('%FT%T%:z')}.
+      %p
+      - if @monitor.BaseMonitor.all_alerts.empty?
+        This monitor has never alerted.
+      - else
+        This monitor has alerted a total of #{@monitor.BaseMonitor.alerts.size} times.
+
     %p
 
     =link_to "Edit Monitor", edit_monitor_path(@monitor.BaseMonitor)

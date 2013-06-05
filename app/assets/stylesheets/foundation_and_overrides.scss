@@ -7,9 +7,19 @@
 // doc page. We tried to name them to where they'd make sense just by reading them.
 // Go to http://foundation.zurb.com/docs/ to find what you need.
 
+.alert-text {
+  color: $alert-color;
+}
+
+.all-clear {
+  color: $success-color;
+}
+
+
 //
 // Foundation Global Variables
 //
+
 
 // This is the default html and body font-size for the base em value.
 $em-base: 12px;

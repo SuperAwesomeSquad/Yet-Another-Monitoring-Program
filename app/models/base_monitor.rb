@@ -1,16 +1,13 @@
 class BaseMonitor < ActiveRecord::Base
-  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds, :monitorable_type
+  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds, :monitorable_type, :last_checked, :initial_check
   belongs_to :monitorable, polymorphic: true
   delegate :do, to: :monitorable
   belongs_to :user
   has_many :alerts
+  # validates_presence_of :name
 
   def active?
     active
-  end
-
-  def name
-
   end
 
   def frequency=(minutes)
@@ -77,6 +74,8 @@ class BaseMonitor < ActiveRecord::Base
     else
       raise "I don't know about this result: #{result}"
     end
+    update_last_checked
+    clear_initial_check
   end
 
   def create_alert
@@ -85,6 +84,16 @@ class BaseMonitor < ActiveRecord::Base
 
   def resolve_alert
     active_alert.resolve
+  end
+
+  def clear_initial_check
+    if initial_check?
+      update_attribute(:initial_check, false)
+    end
+  end
+
+  def update_last_checked
+    update_attribute(:last_checked, Time.now)
   end
 
 end
