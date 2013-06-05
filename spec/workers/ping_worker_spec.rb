@@ -22,15 +22,14 @@ describe PingWorker do
     end
   end
 
-  context "save results" do
-    it "Will save to DB" do
-      prior_total = PingMonitor.all.size
-      @pw.save_result(
-        PingResult.new(
-        )
-      ).should be_true
-    end
-  end
+  # context "save results" do
+  #   it "Will save to DB" do
+  #     @pw.save_result(
+  #       PingResult.new(
+  #       )
+  #     ).should be_true
+  #   end
+  # end
 
   context "create_result" do
     it "Will return a built PingResult with successful on success" do

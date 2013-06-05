@@ -1,7 +1,8 @@
 .row
-	.large-9.columns
-		%h2 Alert
-		%h4.subheader Owned By You
-		- if @alerts.nil?
-			%p You have no active alerts.
-			%p (Do a happy dance. You deserve it.)
+  .large-9.columns
+    %h4.subheader #{current_user}'s alerts
+    - if current_user.has_alerts? == false
+      %p You have no active alerts.
+      %p (Do a happy dance. You deserve it.)
+    - else current_user.has_alerts? == true
+      %p You have alerts.

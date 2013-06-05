@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-
   has_many :BaseMonitors
   has_one :dashboard
 
@@ -35,7 +34,7 @@ class User < ActiveRecord::Base
       get_all_alerts
     end
   end
-
+  private
   def get_inactive_alerts
      user_alerts = alerts.where(active: false)
     !user_alerts.empty? ? user_alerts : false

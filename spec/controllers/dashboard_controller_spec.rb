@@ -1,20 +1,14 @@
 require 'spec_helper'
 
-# describe 'Dashboard', :type=>:feature do
-#   # before :each do
-#   #   @user = FactoryGirl.create(:user)
-#   #   sign_in_as!(@user)
-#   #   # @monitor = FactoryGirl.create(:monitor)
-#   # end
+describe DashboardController do
+  before do
+    @user = FactoryGirl.create(:user)
+  end
 
-# 	it "is visible" do
-# 		visit '/'
-# 		click_link 'Dashboard'
-# 		page.has_content?("Dashboard")
-# 	end
+	it "is visible" do
+    sign_in @user
+    get :index
+    response.should render_template("index")
+	end
 
-# 	it "can toggle to alerts" do
-# 		click_link 'Alerts'
-#  	 	page.has_content?("Alert")
-#   end
-# end
+end

@@ -4,6 +4,12 @@
     .form
       .fieldset
       = simple_form_for @monitor, :url=>'/monitors' do |f|
+        =f.simple_fields_for :ping_monitor do |ping_monitor|
+          = f.input :hostname
+        / = f.simple_fields_for :web_monitor do |web_monitor|
+        /   = f.input :url
+        / = f.simple_fields_for :file_monitor do |file_monitor|
+        /   = f.input :
         = f.simple_fields_for :BaseMonitor do |base_monitor|
           / =base_monitor.input :monitorable_type, label: 'Type of Monitor', priority: [ "Ping Monitor"], collection:["Ping Monitor", "File Monitor", "Web Monitor"], as: :check_boxes
           %p

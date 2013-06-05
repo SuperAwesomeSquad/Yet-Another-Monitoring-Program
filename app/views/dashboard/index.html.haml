@@ -1,10 +1,10 @@
 .row
   .large-9.columns
-    %h4.subhead #{current_user}'s Dashboard
+    %h4.subheader #{current_user}'s dashboard
     %p
     - @monitors.each do |monitor|
       %p
-      =link_to monitor, monitor_path(monitor)
+      =link_to monitor.name, monitor_path(monitor)
       %br
       =monitor.description
 
