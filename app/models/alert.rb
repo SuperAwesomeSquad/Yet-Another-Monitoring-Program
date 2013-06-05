@@ -5,9 +5,9 @@ class Alert < ActiveRecord::Base
 
   def duration
     if active?
-      Time.current - alert_start
+      Time.current - created_at
     else
-      alert_end - alert_start
+      alert_end - created_at
     end
   end
 
@@ -16,9 +16,9 @@ class Alert < ActiveRecord::Base
   end
 
   def resolve(method=:automated)
-    update_attribute(:resolution, method)
-    update_attribute(:active, false)
-    update_attribute(:alert_end, Time.zone.now)
+    update_attribute!(:resolution, method)
+    update_attribute!(:active, false)
+    update_attribute!(:alert_end, Time.now)
   end
 
 end
