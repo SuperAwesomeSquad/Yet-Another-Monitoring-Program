@@ -16,9 +16,9 @@ class Alert < ActiveRecord::Base
   end
 
   def resolve(method=:automated)
-    update_attribute!(:resolution, method)
-    update_attribute!(:active, false)
-    update_attribute!(:alert_end, Time.now)
+    update_attribute(:resolution, method)
+    update_attribute(:active, false)
+    update_attribute(:alert_end, Time.now)
   end
 
 end

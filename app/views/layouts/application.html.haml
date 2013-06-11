@@ -24,8 +24,6 @@
           |
           = link_to "Alerts", alerts_path
       .large-4.columns
-        %p.notice
-        %p.alert
         %div.right{ :style => "float:right; margin-right:10px;" }
           - if user_signed_in?
             Logged in as
@@ -43,8 +41,12 @@
     .row
       .large-12.columns
         %br
-        %p.notice= notice
-        %p.alert= alert
+        - if flash[:notice]
+          .alert-box
+            = flash[:notice]
+        - if flash[:alert]
+          .alert-box.alert
+            = flash[:alert]
         = yield
 
   %footer.row

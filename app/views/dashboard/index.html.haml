@@ -5,15 +5,15 @@
     - @monitors.each do |monitor|
       %p
       - if monitor.alerting?
-        =link_to monitor.name, monitor_path(monitor)
+        =link_to monitor.to_s, monitor_path(monitor)
         is
         %span.alert-text
           alerting
       - elsif monitor.initial_check?
-        =link_to monitor.name, monitor_path(monitor)
+        =link_to monitor.to_s, monitor_path(monitor)
         was just added and will be checked soon!
       - else
-        =link_to monitor.name, monitor_path(monitor)
+        =link_to monitor.to_s, monitor_path(monitor)
         is
         %span.all-clear
           nominal
