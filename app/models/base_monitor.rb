@@ -1,10 +1,10 @@
 class BaseMonitor < ActiveRecord::Base
-  attr_accessible :name, :description, :frequency, :active, :frequency_in_seconds, :monitorable_type, :last_checked, :initial_check
+  attr_accessible :description, :frequency, :active, :frequency_in_seconds, :monitorable_type, :last_checked, :initial_check
   belongs_to :monitorable, polymorphic: true
   delegate :do, to: :monitorable
   belongs_to :user
   has_many :alerts
-  # validates_presence_of :name
+  # validates_presence_of :
 
   def active?
     active

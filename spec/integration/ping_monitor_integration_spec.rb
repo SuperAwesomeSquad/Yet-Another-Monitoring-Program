@@ -4,7 +4,7 @@ feature "Ping Monitor Integration Spec" do
   before do
     @user = FactoryGirl.create(:user)
     @pm = PingMonitor.new(hostname:'127.0.0.1')
-    @pm.build_BaseMonitor(name: 'nykida.net', description: 'test monitor')
+    @pm.build_BaseMonitor(description: 'test monitor')
     @pm.save
     @bm = @pm.BaseMonitor
     @bm.user = @user
@@ -35,7 +35,7 @@ feature "Ping Monitor Integration Spec" do
   scenario "Ping monitor is unsuccessful and creates new alert" do
     @user = FactoryGirl.create(:user)
     @pm = PingMonitor.new(hostname:'nykhgfhgfhfhgfida.net')
-    @pm.build_BaseMonitor(name: 'nykida.net', description: 'test monitor')
+    @pm.build_BaseMonitor(description: 'test monitor')
     @pm.save
     @bm = @pm.BaseMonitor
     @bm.user = @user
