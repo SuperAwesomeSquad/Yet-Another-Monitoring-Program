@@ -16,6 +16,7 @@ def show
     @alert_duration = @basemonitor.active_alert.duration
   end
   @last_checked = @basemonitor.last_checked
+
 end
 
 def new
@@ -44,7 +45,7 @@ def update
   @monitor = BaseMonitor.find(params[:id]).monitorable
   if @monitor.update_attributes(params[:ping_monitor])
     flash[:success]= "Successfully updated monitor."
-    render :action => "show", :id=>@monitor.BaseMonitor
+    redirect_to monitor_path(@monitor.BaseMonitor)
   else
     flash[:alert]= "Monitor has not been updated."
     render :action => "edit"
@@ -54,7 +55,7 @@ end
 def destroy
   @monitor = BaseMonitor.find(params[:id])
   @monitor.destroy
-  redirect_to monitors_url, notice: "Successfully deleted a monitor."
+  redirect_to monitors_url, notice: "Monitor deleted"
 end
 
 end

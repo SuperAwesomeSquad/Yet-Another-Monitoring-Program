@@ -11,7 +11,6 @@
         /   = f.input :
         = f.simple_fields_for :BaseMonitor do |base_monitor|
           %p
-          = base_monitor.input :name
           = base_monitor.input :description
           %p
           = base_monitor.input :frequency_in_seconds, priority: [ 300], collection: [ 100, 200, 300, 400, 500, 600, 700, 800, 900], as: :radio_buttons
